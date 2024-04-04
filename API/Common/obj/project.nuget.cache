@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ABe+2Xr/HvJEWtHmnh0QeNTTaoTffV6eVnB58Q3V9cp2Tz4PGzucMsUyIHJ0ujE+YQAWk6IMB/qUI20BQNxCPw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Common\\Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kelvin\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\Kelvin\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\Kelvin\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
