@@ -51,3 +51,4 @@ C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\WAPISGA\obj\Debug\net8.0\WAPISGA.
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\WAPISGA\obj\Debug\net8.0\WAPISGA.genruntimeconfig.cache
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\WAPISGA\obj\Debug\net8.0\ref\WAPISGA.dll
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\WAPISGA\bin\Debug\net8.0\WAPISGA.dll.config
+C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\WAPISGA\obj\Debug\net8.0\WAPISGA.sourcelink.json

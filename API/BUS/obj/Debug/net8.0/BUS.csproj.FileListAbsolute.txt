@@ -19,3 +19,4 @@ C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\BUS\obj\Debug\net8.0\BUS.dll
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\BUS\obj\Debug\net8.0\refint\BUS.dll
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\BUS\obj\Debug\net8.0\BUS.pdb
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\BUS\obj\Debug\net8.0\ref\BUS.dll
+C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\BUS\obj\Debug\net8.0\BUS.sourcelink.json

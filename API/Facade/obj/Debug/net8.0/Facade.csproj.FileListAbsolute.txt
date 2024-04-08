@@ -21,3 +21,4 @@ C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\Facade\obj\Debug\net8.0\Facade.dl
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\Facade\obj\Debug\net8.0\refint\Facade.dll
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\Facade\obj\Debug\net8.0\Facade.pdb
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\Facade\obj\Debug\net8.0\ref\Facade.dll
+C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\Facade\obj\Debug\net8.0\Facade.sourcelink.json
