@@ -1,0 +1,47 @@
+<div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed' : ''">
+    <div class="logo-container">
+        <img *ngIf="!collapsed" @fadeInOut class="logo" src="../../../../assets/Images/logo-white.png" width="50px" height="50px" (click)="toggleCollapse()">
+        <img *ngIf="collapsed" @fadeInOut src="../../../../assets/Images/Plural.png" height="60" (click)="closeSideBar()">
+    </div>
+  
+    <div class="scrollwrap scrollwrap_delayed">
+  
+        <ul class="sidebar-bar">
+            <li class="sidebar-bar-item" *ngFor="let data of sideData">
+                <a class="sidebar-bar-link" (click)="handleClick(data)"
+                    *ngIf="data.items && data.items.length > 0"
+                    [ngClass]="getActiveClass(data)"
+                >
+                        <mat-icon class="sidebar-link-icon">{{data.icon}}</mat-icon>
+                        <span class="sidebar-link-text" @fadeInOut *ngIf="collapsed">
+                            {{data.label}}
+                        </span>
+                        <mat-icon *ngIf="data.items && collapsed" class="menu-collapse-icon">
+                            {{!data.expanded? 'chevron_right': 'expand_more'}}
+                          </mat-icon>
+                </a>
+  
+                <a class="sidebar-bar-link"
+                    *ngIf="!data.items || (data.items && data.items.length === 0)"
+                    [routerLink]="[data.routeLink]"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    (click)="shrinkItems(data)"
+                >
+                    <mat-icon class="sidebar-link-icon">{{data.icon}}</mat-icon>
+                    <span class="sidebar-link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
+                </a>
+                <div *ngIf="collapsed && data.items && data.items.length > 0">
+                    <app-sublevel-menu
+                        [data]="data"
+                        [collapsed]="collapsed"
+                        [multiple]="multiple"
+                        [expanded]="data.expanded"
+                    ></app-sublevel-menu>
+                </div>
+            </li>
+        </ul>
+    </div>
+  </div>
+  
+  

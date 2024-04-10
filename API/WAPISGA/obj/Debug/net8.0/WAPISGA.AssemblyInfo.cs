@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WAPISGA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3061ac32eb93f5a8ff59bf99aacfd3808f630a14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e17b5b9ae6a29f986b57e6251d60123990f6e9f")]
 [assembly: System.Reflection.AssemblyProductAttribute("WAPISGA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WAPISGA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

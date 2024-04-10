@@ -1,7 +1,31 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8AC946BE-107C-4836-8C33-49C80AFFA625}|..\\BUS\\BUS.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\bus\\solicitacao\\solicitacaobus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76A948D9-808F-4B6A-A57D-32C24CD00609}|..\\DAL\\DAL.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\dal\\solicitacao\\solicitacaodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AC946BE-107C-4836-8C33-49C80AFFA625}|..\\BUS\\BUS.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\bus\\empresa\\empresabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D753901F-7D5C-4955-9248-613AC943DBFD}|..\\Facade\\Facade.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\facade\\empresa\\empresafacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\repositories\\empresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:repositories\\empresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76A948D9-808F-4B6A-A57D-32C24CD00609}|..\\DAL\\DAL.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\dal\\empresa\\empresadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +33,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,6 +66,93 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SolicitacaoBUS.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "RelativeDocumentMoniker": "..\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "RelativeToolTip": "..\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T22:22:11.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SolicitacaoDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Solicitacao\\SolicitacaoDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Solicitacao\\SolicitacaoDAL.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Solicitacao\\SolicitacaoDAL.cs",
+              "RelativeToolTip": "..\\DAL\\Solicitacao\\SolicitacaoDAL.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAcwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T22:21:57.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmpresaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Repositories\\EmpresaRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\EmpresaRepository.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Repositories\\EmpresaRepository.cs",
+              "RelativeToolTip": "Repositories\\EmpresaRepository.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAQwB4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T22:07:12.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmpresaFacade.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Facade\\Empresa\\EmpresaFacade.cs",
+              "RelativeDocumentMoniker": "..\\Facade\\Empresa\\EmpresaFacade.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Facade\\Empresa\\EmpresaFacade.cs",
+              "RelativeToolTip": "..\\Facade\\Empresa\\EmpresaFacade.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwCMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T22:07:07.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmpresaBUS.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Empresa\\EmpresaBUS.cs",
+              "RelativeDocumentMoniker": "..\\BUS\\Empresa\\EmpresaBUS.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Empresa\\EmpresaBUS.cs",
+              "RelativeToolTip": "..\\BUS\\Empresa\\EmpresaBUS.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAowGIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T22:02:29.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmpresaController.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\EmpresaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmpresaController.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\EmpresaController.cs",
+              "RelativeToolTip": "Controllers\\EmpresaController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHQAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T22:02:29.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EmpresaDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Empresa\\EmpresaDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Empresa\\EmpresaDAL.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Empresa\\EmpresaDAL.cs",
+              "RelativeToolTip": "..\\DAL\\Empresa\\EmpresaDAL.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAuwEIAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T22:02:29.295Z"
             }
           ]
         }

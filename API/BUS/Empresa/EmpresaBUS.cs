@@ -92,7 +92,7 @@ namespace BUS.Empresa
                 {
                     return new RetornoPostInfo()
                     {
-                        Mensagem = $"Erro ao localizar a empresa no banco de dados. Id não existente {pId}.",
+                        Mensagem = $"Erro ao localizar a empresa no banco de dados. Id:{pId} não existente.",
                         Dados = pId.ToString()
                     };
                 }

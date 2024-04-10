@@ -1,0 +1,195 @@
+@import "../../../Scss/variables.scss";
+
+.sidebar {
+    background: $azulPlural;
+    transition: all .5s ease;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    width: 5.5rem;
+    height: 100vh;
+    box-shadow: 0.063rem 0 1.25rem 0 #000;
+
+    .logo-container{
+        display: flex;
+        align-items: center;
+        padding: 0.938rem 0.938rem 0 0.938rem;
+        width: 100%;
+
+        cursor: pointer;
+
+    }
+
+}
+
+.sidebar-collapsed{
+    width: 18rem;
+
+}
+
+.sidebar-bar {
+    list-style: none;
+    padding: 0.938rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+
+    .sidebar-bar-item{
+        width: 100%;
+        margin-bottom: 0.625rem;
+    }
+
+    .sidebar-bar-link{
+        display: flex;
+        align-items: center;
+        height: 3.5rem;
+        color: white;
+        text-decoration: none;
+        transition: color .3s ease;
+        justify-content: center;
+        width: 100%;
+
+        .sidebar-link-text{
+            margin-left: 1.5rem;
+            margin-right: 2rem;
+            width: 100px;
+
+        }
+    }
+
+    .sidebar-bar-item:hover{
+        .sidebar-bar-link{
+            background-color: white;
+            border-radius: 30px;
+            color: $azulPlural;
+        }
+        .menu-collapse-icon{
+            color: $azulPlural;
+        }
+
+    }
+
+}
+
+
+
+.active {
+    background-color: white;
+    border-radius: 30px;
+    .sidebar-link-icon,
+    .sidebar-link-text{
+        color: $azulPlural;
+    }
+}
+
+.active-sublevel {
+    color: $azulPlural !important;
+    opacity: 1 !important;
+    background-color: white;
+}
+
+.menu-collapse-icon{
+  font-size: 25px;
+  color: white;
+}
+
+.mat-menu-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.sublevel-bar {
+    list-style:none;
+    margin-left: 5px;
+
+    .sublevel-bar-item{
+        .sublevel-bar-link{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 3rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all .3s ease;
+            font-size: 13px;
+
+            .menu-collapse-icon{
+                width: 24px;
+                margin: 0px;
+            }
+
+            .sublevel-link-icon{
+              width: 20px;
+              font-size: 12px;
+              align-items: center;
+              justify-content: center;
+              margin-top: 12px;
+              margin-left: 10px;
+
+            }
+
+            .sublevel-link-text{
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+
+        .sublevel-bar-link:hover{
+            color: $azulPlural;
+            background-color: white;
+            .menu-collapse-icon{
+                color: $azulPlural;
+
+            }
+        }
+        mat-icon{
+            height: 24px;
+            width: 0px;
+        }
+
+    }
+}
+
+.scrollwrap{
+    overflow-y: auto;
+    visibility: hidden;
+    height: calc(100% - 3.65rem);
+
+}
+
+.sidebar-bar,
+.scrollwrap:hover,
+.scrollwrap:focus {
+    visibility: visible;
+}
+
+.scrollwrap_delayed{
+    transition: visibility 0.5s 0.2s;
+}
+
+.scrollwrap_delayed:hover {
+    transition: visibility 0.2s 0.2s;
+}
+
+.scrollwrap::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrollwrap::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.scrollwrap::-webkit-scrollbar-thumb{
+    background-color: #556268;
+    border-radius: 20px;
+}
+
+.scrollwrap {
+    scrollbar-width: thin;
+    scrollbar-color:#556268 transparent;
+}
