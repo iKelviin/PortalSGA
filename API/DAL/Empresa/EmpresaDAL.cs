@@ -25,15 +25,11 @@ namespace DAL.Empresa
             {
                 using (Connection)
                 {
-                    Parameters = new SqlParameter[1];
-                    Parameters[0] = new SqlParameter("@ID", pEmpresa.ID);
-
-                    ExecuteNonQuery("usp_ExcluirEmpresa", System.Data.CommandType.StoredProcedure, Parameters);
+                    ExecuteNonQuery("usp_ExcluirEmpresa", pEmpresa);
                 }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -49,7 +45,7 @@ namespace DAL.Empresa
             {
                 using (Connection)
                 {
-                    return Convert.ToInt32(ExecuteScalar("usp_InserirEmpresa", pEmpresa));
+                    return Convert.ToInt32(ExecuteScalar("usp_GravarEmpresa", pEmpresa));
                 }
             }
             catch (Exception ex)
@@ -64,24 +60,24 @@ namespace DAL.Empresa
         /// </summary>
         /// <param name="pId">ID da empresa.</param>
         /// <returns>Dados da empresa.</returns>
-        public override EmpresaInfo Selecionar(int id)
+        public override EmpresaInfo Selecionar(int pId)
         {
             try
             {
                 DataTable dt;
-                EmpresaInfo obj = new EmpresaInfo();
+                EmpresaInfo empresa = new EmpresaInfo();
+                empresa.Id = pId;
+
                 using (Connection)
-                {
-                    Parameters = new SqlParameter[1];
-                    Parameters[0] = new SqlParameter("@ID", id);
-                    dt = ExecuteDataTable("usp_ObterEmpresa", System.Data.CommandType.StoredProcedure, Parameters);
+                {                   
+                    dt = ExecuteDataTable("usp_ObterEmpresas", empresa);
                 }
 
                 if (dt.Rows.Count > 0)
                 {
-                    obj = PegaItem<EmpresaInfo>(dt.Rows[0]);
+                    empresa = PegaItem<EmpresaInfo>(dt.Rows[0]);
                 }
-                return obj;
+                return empresa;
             }
             catch (Exception ex)
             {
@@ -123,34 +119,30 @@ namespace DAL.Empresa
         /// <summary>
         /// Retorna uma lista de empresas cadastradas filtrando pelo nome.
         /// </summary>
-        /// <param name="nome">Nome da empresa.</param>
+        /// <param name="pNome">Nome da empresa.</param>
         /// <returns>Lista de empresas filtrada pelo nome.</returns>
-        public List<EmpresaInfo> SelecionarListaPorNome(string nome)
+        public List<EmpresaInfo> SelecionarListaPorNome(string pNome)
         {
-
-            List<EmpresaInfo> lst = new List<EmpresaInfo>();
             try
             {
                 DataTable dt;
+                List<EmpresaInfo> lst = new List<EmpresaInfo>();
 
                 using (Connection)
                 {
-                    Parameters = new SqlParameter[1];
-                    Parameters[0] = new SqlParameter("@Nome", nome);
-                    dt = ExecuteDataTable("usp_ObterEmpresas", CommandType.StoredProcedure, Parameters);
+                    dt = ExecuteDataTable("usp_ObterEmpresasPorNome", new object[] { pNome });
                 }
                 if (dt.Rows.Count > 0)
                 {
                     lst = ConverteParaLista<EmpresaInfo>(dt);
                 }
+
+                return lst;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
-            return lst;
-
         }
     }
 }

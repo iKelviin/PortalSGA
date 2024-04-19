@@ -416,14 +416,14 @@ namespace DAL
         {
             try
             {
-                using (connection)
+                using (Connection)
                 {
                     if (connection.State == System.Data.ConnectionState.Closed)
                     {
                         connection.Open();
                     }
 
-                    Command = new SqlCommand(pSqlCommand, connection);
+                    Command = new SqlCommand(pSqlCommand, Connection);
 
                     Command.CommandType = pCommandType;
                     Command.CommandTimeout = 60;
@@ -560,7 +560,7 @@ namespace DAL
         {
             try
             {
-                using (connection)
+                using (Connection)
                 {
                     if (connection.State == System.Data.ConnectionState.Closed)
                     {

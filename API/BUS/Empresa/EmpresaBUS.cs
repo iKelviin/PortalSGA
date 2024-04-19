@@ -88,7 +88,7 @@ namespace BUS.Empresa
 
                 EmpresaInfo voEmpresa = oDal.Selecionar(pId);
 
-                if (voEmpresa.ID == 0)
+                if (voEmpresa.Id == 0)
                 {
                     return new RetornoPostInfo()
                     {
