@@ -1,5 +1,5 @@
 ﻿using Entity.Solicitacao;
-using Facade.Solicitacao;
+using Facade;
 
 namespace WAPISGA.Repositories
 {

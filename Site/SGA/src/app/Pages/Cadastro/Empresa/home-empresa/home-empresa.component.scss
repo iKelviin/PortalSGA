@@ -1,0 +1,87 @@
+table,
+.form-fields {
+  width: 100%;
+}
+
+mat-paginator{
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.responsive-table {
+  width: 100%;
+  overflow-x: scroll;
+  //overflow-y: hidden;
+}
+.mat-elevation-z5{
+  margin-left: auto;
+  margin-right: 20px;
+  border-radius: 3px;
+}
+
+#pageTitle {
+  color: #004380;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+
+.container-options {
+  display: flex;  
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  align-items: start;
+
+  .search, .buttons, .filters {
+    flex: 1 1 auto;
+  }
+}
+
+.search{
+  width: 30%;
+}
+
+.buttons{
+  display: flex;
+  gap: 0.5rem;
+}
+
+
+.filters{
+  background-color: white;
+  border-radius: 5px !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  min-width: 350px;
+  max-width: 350px;
+}
+
+// Media Queries para ajustar quando a tela é pequena
+@media (max-width: 1024px) {
+  .container-options {
+  
+    .filters {
+      order: 2; // Muda os filtros para a segunda posição      
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container-options {
+    flex-direction: column;
+    row-gap: 10px;
+    .filters {
+      order: 2; // Muda os filtros para a segunda posição      
+      margin-left: 0;
+    }
+  }
+}
+
+
+

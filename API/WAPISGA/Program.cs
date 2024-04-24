@@ -24,7 +24,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // Configura o caminho do XML com a documentação para a API do Swagger
-builder.Services.AddSwaggerGen(/*c =>
+builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "API SGA", Version = "v1" });
 
@@ -33,7 +33,7 @@ builder.Services.AddSwaggerGen(/*c =>
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
     c.IncludeXmlComments(xmlPath);
-}*/);
+});
 
 var app = builder.Build();
 

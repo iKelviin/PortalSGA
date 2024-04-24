@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WAPISGA</name>
+    </assembly>
+    <members>
+        <member name="T:WAPISGA.Controllers.CargoController">
+            <summary>
+            Controller responsavel pelas requisicoes de dados de Departamento.
+            </summary>
+        </member>
+        <member name="M:WAPISGA.Controllers.CargoController.Gravar(System.Int32,Entity.CargoInfo)">
+            <summary>
+            Grava dados de um novo cargo ou atualiza um ja existente.
+            </summary>
+            <param name="pIdDepartamento">Id do departamento.</param>
+            <param name="pCargo">Dados do cargo.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.CargoController.SelecionarLista">
+            <summary>
+            Retorna uma lista de cargos cadastrados.
+            </summary>
+            <returns>Lista de cargos.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.CargoController.SelecionarListaPorDepartamento(System.Int32)">
+            <summary>
+            Retorna uma lista de cargos cadastrados para um determinad departamento.
+            </summary>
+            <param name="pIdDepartamento">Id do departamento.</param>
+            <returns>Lista de cargos por departamento.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.CargoController.SelecionarListaPorNome(System.String)">
+            <summary>
+            Retorna uma lista de cargos cadastrados filtrando pelo nome.
+            </summary>
+            <param name="pNome">Nome do cargo.</param>
+            <returns>Lista de cargos filtrados pelo nome.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.CargoController.Selecionar(System.Int32)">
+            <summary>
+            Retorna um cargo de acordo com o ID informado.
+            </summary>
+            <param name="pId">ID do cargo.</param>
+            <returns>Dados do cargo.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.CargoController.Excluir(System.Int32)">
+            <summary>
+            Exclui um cargo existente.
+            </summary>
+            <param name="pId">Id do cargo.</param>
+            <returns>Resultado da operacao de exclusão.</returns>
+        </member>
+        <member name="T:WAPISGA.Controllers.DepartamentoController">
+            <summary>
+            Controller responsavel pelas requisicoes de dados de Departamento.
+            </summary>
+        </member>
+        <member name="M:WAPISGA.Controllers.DepartamentoController.Gravar(System.Int32,Entity.DepartamentoInfo)">
+            <summary>
+            Grava dados de um nov departamento ou atualiza um ja existente.
+            </summary>
+            <param name="pIdEmpresa">Id da empresa.</param>
+            <param name="pDepartamento">Dados do departamento.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.DepartamentoController.SelecionarLista">
+            <summary>
+            Retorna uma lista de departamentos cadastrados.
+            </summary>
+            <returns>Lista de departamentos.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.DepartamentoController.SelecionarListaPorEmpresa(System.Int32)">
+            <summary>
+            Retorna uma lista de departamentos cadastrados para uma determinada empresa.
+            </summary>
+            <param name="pIdEmpresa">Id da empresa.</param>
+            <returns>Lista de departamentos por empresa.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.DepartamentoController.SelecionarListaPorNome(System.String)">
+            <summary>
+            Retorna uma lista de departamentos cadastrados filtrando pelo nome.
+            </summary>
+            <param name="pNome">Nome do departamento.</param>
+            <returns>Lista de departamentos filtrados pelo nome.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.DepartamentoController.Selecionar(System.Int32)">
+            <summary>
+            Retorna um departamento de acordo com o ID informado.
+            </summary>
+            <param name="pId">ID do departamento.</param>
+            <returns>Dados do departamento.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.DepartamentoController.Excluir(System.Int32)">
+            <summary>
+            Exclui um departamento existente.
+            </summary>
+            <param name="pId">Id do departamento.</param>
+            <returns>Resultado da operacao de exclusão.</returns>
+        </member>
+        <member name="T:WAPISGA.Controllers.EmpresaController">
+            <summary>
+            Controller responsavel pelas requisicoes de dados de Empresa.
+            </summary>
+        </member>
+        <member name="M:WAPISGA.Controllers.EmpresaController.Gravar(Entity.EmpresaInfo)">
+            <summary>
+            Grava dados de uma nova empresa ou atualiza uma ja existente.
+            </summary>
+            <param name="pEmpresa">Dados da empresa.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.EmpresaController.SelecionarLista">
+            <summary>
+            Retorna uma lista de empresas cadastradas.
+            </summary>
+            <returns>Lista de empresas.</returns>]
+        </member>
+        <member name="M:WAPISGA.Controllers.EmpresaController.SelecionarListaPorNome(System.String)">
+            <summary>
+            Retorna uma lista de empresas cadastradas filtrando pelo nome.
+            </summary>
+            <param name="nome">Nome da empresa.</param>
+            <returns>Lista de empresas filtrada pelo nome.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.EmpresaController.Selecionar(System.Int32)">
+            <summary>
+            Retorna uma empresa de acordo com o ID informado.
+            </summary>
+            <param name="pId">ID da empresa.</param>
+            <returns>Dados da empresa.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.EmpresaController.Excluir(System.Int32)">
+            <summary>
+            Exclui uma empresa existente.
+            </summary>
+            <param name="pId">Id da empresa.</param>
+            <returns>Resultado da operacao de exclusão.</returns>
+        </member>
+        <member name="T:WAPISGA.Controllers.SolicitacaoController">
+            <summary>
+            Controller responsavel pelas requisicoes de dados de Solicitações.
+            </summary>
+        </member>
+        <member name="M:WAPISGA.Controllers.SolicitacaoController.SelecionarLista">
+            <summary>
+            Retorna uma lista de Solicitações cadastradas.
+            </summary>
+            <returns>Lista de Solicitações.</returns>]
+        </member>
+        <member name="T:WAPISGA.Repositories.CargoRepository">
+            <summary>
+            Repositorio para acesso aos dados do cargo.
+            </summary>
+        </member>
+        <member name="M:WAPISGA.Repositories.CargoRepository.Gravar(System.Int32,Entity.CargoInfo)">
+            <summary>
+            Grava dados de um novo cargo ou atualiza um ja existente.
+            </summary>
+            <param name="pIdDepartamento">Id do departamento.</param>
+            <param name="pCargo">Dados do cargo.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.CargoRepository.Excluir(System.Int32)">
+            <summary>
+            Exclui um cargo de acordo com o Id informado.
+            </summary>
+            <param name="pId">Dados do cargo.</param>
+            <returns>Exclui um cargo.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.CargoRepository.SelecionarLista">
+            <summary>
+            Retorna uma lista de cargos cadastrados.
+            </summary>
+            <returns>Lista de cargos.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.CargoRepository.SelecionarLista(System.Int32)">
+            <summary>
+            Retorna uma lista de cargos cadastrados para um determinado departamento.
+            </summary>
+            <param name="pIdDepartamento">Id do departamento.</param>
+            <returns>Lista de cargos por departamento.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.CargoRepository.SelecionarListaPorNome(System.String)">
+            <summary>
+            Retorna uma lista de cargos cadastrados filtrando pelo nome.
+            </summary>
+            <param name="pNome">Nome do cargo.</param>
+            <returns>Lista de cargos filtrados pelo nome.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.CargoRepository.Selecionar(System.Int32)">
+            <summary>
+            Retorna um cargo de acordo com o Id informado.
+            </summary>
+            <param name="pId">ID do cargo.</param>
+            <returns>Dados do cargo.</returns>
+        </member>
+        <member name="T:WAPISGA.Repositories.DepartamentoRepository">
+            <summary>
+            Repositorio para acesso aos dados do departamento.
+            </summary>
+        </member>
+        <member name="M:WAPISGA.Repositories.DepartamentoRepository.Gravar(System.Int32,Entity.DepartamentoInfo)">
+            <summary>
+            Grava dados de um novo departamento ou atualiza um ja existente.
+            </summary>
+            <param name="pIdEmpresa">Id da empresa.</param>
+            <param name="pDepartamento">Dados do departamento.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.DepartamentoRepository.Excluir(System.Int32)">
+            <summary>
+            Exclui um departamento de acordo com o Id informado.
+            </summary>
+            <param name="pId">Dados do departamento.</param>
+            <returns>Exclui um departamento.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.DepartamentoRepository.SelecionarLista">
+            <summary>
+            Retorna uma lista de departamentos cadastrados.
+            </summary>
+            <returns>Lista de departamentos.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.DepartamentoRepository.SelecionarLista(System.Int32)">
+            <summary>
+            Retorna uma lista de departamentos cadastrados para uma determinada empresa.
+            </summary>
+            <param name="pIdEmpresa">Id da empresa.</param>
+            <returns>Lista de departamentos por empresa.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.DepartamentoRepository.SelecionarListaPorNome(System.String)">
+            <summary>
+            Retorna uma lista de departamentos cadastrados filtrando pelo nome.
+            </summary>
+            <param name="pNome">Nome do departamento.</param>
+            <returns>Lista de departamentos filtrados pelo nome.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.DepartamentoRepository.Selecionar(System.Int32)">
+            <summary>
+            Retorna um departamento de acordo com o Id informado.
+            </summary>
+            <param name="pId">ID do departamento.</param>
+            <returns>Dados do departamento.</returns>
+        </member>
+        <member name="T:WAPISGA.Repositories.EmpresaRepository">
+            <summary>
+            Repositorio para acesso aos dados da Empresa.
+            </summary>
+        </member>
+        <member name="M:WAPISGA.Repositories.EmpresaRepository.Gravar(Entity.EmpresaInfo)">
+            <summary>
+            Grava dados de uma nova empresa ou atualiza uma ja existente.
+            </summary>
+            <param name="pEmpresa">Dados da empresa.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.EmpresaRepository.Excluir(System.Int32)">
+            <summary>
+            Exclui uma empresa de acordo com o ID informado.
+            </summary>
+            <param name="pEmpresa">Dados da empresa.</param>
+            <returns>Exclui uma empresa.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.EmpresaRepository.SelecionarLista">
+            <summary>
+            Retorna uma lista de empresas cadastradas.
+            </summary>
+            <returns>Lista de empresas.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.EmpresaRepository.SelecionarListaPorNome(System.String)">
+            <summary>
+            Retorna uma lista de empresas cadastradas filtrando pelo nome.
+            </summary>
+            <param name="nome">Nome da empresa.</param>
+            <returns>Lista de empresas filtrada pelo nome.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.EmpresaRepository.Selecionar(System.Int32)">
+            <summary>
+            Retorna uma empresa de acordo com o ID informado.
+            </summary>
+            <param name="pId">ID da empresa.</param>
+            <returns>Dados da empresa.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.SolicitacaoRepository.SelecionarLista">
+            <summary>
+            Retorna uma lista de Solicitações cadastradas.
+            </summary>
+            <returns>Lista de Solicitações.</returns>
+        </member>
+    </members>
+</doc>

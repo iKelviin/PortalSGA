@@ -1,6 +1,6 @@
 ﻿using Entity.Common;
 using Entity;
-using Facade.Departamento;
+using Facade;
 
 namespace WAPISGA.Repositories
 {

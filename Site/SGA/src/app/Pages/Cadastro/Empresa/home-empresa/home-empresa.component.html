@@ -1,0 +1,172 @@
+
+<div class="container-fluid">
+  <h1 class="font-text-title mb-1 pt-5" id="pageTitle">Lista de Empresas</h1>
+  <p class="mb-3">Lista de empresas salvas na base de dados</p>
+
+  
+    <div class="container-options mt-5">
+
+      <app-input-search
+        class="search"
+        type="text"
+        placeholder="Pesquisar"
+        width="100%"
+        matInput (keyup)="applyFilter($event)" #input>
+      </app-input-search>
+    
+      <div class="buttons">
+        <button mat-mini-fab style="background-color: var(--blue-main)" (click)="openAddEditDialog(add, {})" matTooltip="Cadastrar">
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <button mat-mini-fab class="ms-3" style="background-color: var(--blue-main)" (click)="toggleForm()" matTooltip="Mostrar/Ocultar Colunas">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+    
+        <button mat-mini-fab color="primary" class="ms-3" style="background-color: rgb(255, 60, 60);color:white"
+        (click)="openDeleteDialog(selection.selected.length, selection.selected)"
+        [disabled]="!selection.hasValue()" matTooltip="Deletar">
+        <mat-icon>delete</mat-icon>
+        </button>
+
+        <button mat-mini-fab color="primary" class="ms-3" style="background-color: rgb(255, 60, 60);color:white"
+        (click)="openDeleteDialog(selection.selected.length, selection.selected)"
+        [disabled]="!selection.hasValue()" matTooltip="Desativar">
+        <mat-icon>do_not_disturb_on</mat-icon>
+        </button>
+    
+        <button mat-mini-fab style="background: green;"matTooltip="Exportar"
+         class="ms-3">
+          <mat-icon>save_alt</mat-icon>
+        </button>
+      </div>
+    
+      <div class="filters mat-elevation-z2">
+        
+            <span>Filtros:</span>
+            <mat-radio-group name="filtroRadio">
+              <mat-radio-button color="primary" checked="true" value="ativos" (change)="radioButtonChange($event)">Ativos</mat-radio-button>
+              <mat-radio-button color="primary" value="inativos" (change)="radioButtonChange($event)">Inativos</mat-radio-button>
+              <mat-radio-button color="primary" value="todos" (change)="radioButtonChange($event)">Todos</mat-radio-button>
+            </mat-radio-group>    
+        
+      </div>
+    </div>
+  
+    <div fxLayout="row wrap" [@animation] class="mb5 d-flex justify-content-between flex-wrap">
+      <div fxFlex="20" fxFlex.lt-sm="50" *ngFor="let item of checkBoxList">
+        <mat-checkbox (change)="hideColumn($event, item.def)" [checked]="item.hide" color="primary">
+          {{ item.label }}
+        </mat-checkbox>
+      </div>
+    </div>
+
+  <div class="responsive-table">
+  
+      <table mat-table matTableExporter [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+        
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox class="checkbox-header" (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()" color="primary"> 
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row" class="checkbox-cell">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)" color="primary">
+                </mat-checkbox>
+            </td>
+          </ng-container>  
+        
+          
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.id}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.nome}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.email}} </td>
+        </ng-container>        
+
+        <ng-container matColumnDef="telefone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </th>
+            <td mat-cell *matCellDef="let empresa"> {{empresa.telefone}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="endereco">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Endereço </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.endereco}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="numero">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.numero}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="cidade">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Cidade </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.cidade}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="bairro">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Bairro </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.bairro}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.estado}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ativo">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.ativo ? 'Ativo' : 'Inativo' }} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Ação</th>
+          <td mat-cell *matCellDef="let empresa">
+  
+            <button mat-icon-button style="color: var(--blue-main)" (click)="openAddEditDialog(edit, empresa)" matTooltip="Editar">
+              <mat-icon>edit</mat-icon>
+            </button>
+  
+            <button mat-icon-button color="primary" (click)="openDeleteDialog(1, empresa)" matTooltip="Deletar">
+              <mat-icon style="color: rgb(255, 60, 60);">delete</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="openDeleteDialog(1, empresa)" matTooltip="Desativar">
+                <mat-icon style="color: rgb(255, 60, 60);">do_not_disturb_on</mat-icon>
+            </button>
+  
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="disColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: disColumns;"
+        (click)="selection.toggle(row)">
+        </tr>
+  
+      </table>
+  
+      <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
+        <mat-progress-spinner color="primary" mode="indeterminate">
+        </mat-progress-spinner>
+      </mat-card>
+  
+    <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[10, 20 ,50]" showFirstLastButtons></mat-paginator>
+  
+  </div>
+  
+  
+  </div>
+  

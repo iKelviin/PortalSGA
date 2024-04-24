@@ -1,0 +1,36 @@
+$azulPlural : #001F46;
+$azulClaro : #01326F;
+$branco : #fff;
+$preto: #4a4a4a;
+
+/* VARIABLES */
+:root {
+    /* MAIN COLORS */
+    --blue-main: #004380;
+    --dark-blue-main: #001F46;
+    --purple-main: #6c328a;
+    --white: #ffffff;
+    --black: #4a4a4a;
+
+    /* ALERT COLORS */
+    --danger-alert: #f8d7da;
+    --primary-alert: #cce5ff;
+    --secondary-alert: #e2e3e5;
+    --warning-alert: #fff3cd;
+    --info-alert: #d1ecf1;
+    --dark-alert: #d6d8d9;
+    --light-alert: #fefefe;
+    --success-alert: #d4edda;
+
+    /* DEFAULT COLORS */
+    --green: #3c763d;
+    --red: #c82333;
+    --yellow: #ffe484;
+    --ciano-weak: #cff4fc;
+    --blue-primary: #0d6efd;
+
+    /* DIFFERENT COLORS */
+    --green-success: #7dab54;
+    --blue-info: #0093d1;
+    --excel-color: #217346;
+  }

@@ -1,0 +1,66 @@
+** HTML
+<div class="input-group" [style.width]="outWidth">
+    <input [type]="type" class="form-control input-search mat-elevation-z1" [placeholder]="placeholder" >
+    <span class="material-symbols-outlined" id="iconSearch" >
+      search
+    </span>
+</div>
+  
+
+**TS
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-input-search',
+  templateUrl: './input-search.component.html',
+  styleUrl: './input-search.component.scss'
+})
+export class InputSearchComponent implements OnInit{
+  @Input() placeholder: string = 'Example placeholder';
+  @Input() type: string = 'text';
+  @Input() width: string;  // Este valor pode ser algo como '50%', '200px', etc.
+  outWidth: string;
+
+  ngOnInit(): void {
+    // Verifica se a largura inclui uma unidade conhecida
+    if (this.width.match(/(px|%|em|rem)$/)) {
+      this.outWidth = this.width;
+    } else {
+      this.outWidth = this.width + 'px';  // Assumir px se nenhuma unidade especificada
+    }
+    console.log('outWidth',this.outWidth);
+  }
+}
+
+
+**SCSS
+.input-group{
+  position: relative;
+  width: 100%; /* ou outro valor dependendo do design */
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.input-search {
+  flex: 1 0 auto; /* Cresce e encolhe, mas respeita o 'auto' baseado no width */   
+  height: 100%;
+  position: relative;
+  border-radius: 5px !important;
+  padding-right: 40px;
+}
+
+.input-search:focus
+{
+  border-color: var(--blue-main);
+  box-shadow: 0 0 0 0.03rem var(--blue-main)
+}
+
+#iconSearch {
+    color: var(--blue-main);
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%); /* centraliza verticalmente */
+  }

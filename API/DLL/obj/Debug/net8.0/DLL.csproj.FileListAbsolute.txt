@@ -9,3 +9,4 @@ C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\DLL\obj\Debug\net8.0\DLL.dll
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\DLL\obj\Debug\net8.0\refint\DLL.dll
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\DLL\obj\Debug\net8.0\DLL.pdb
 C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\DLL\obj\Debug\net8.0\ref\DLL.dll
+C:\Users\Kelvin\Documents\GitHub\PortalSGA\API\DLL\obj\Debug\net8.0\DLL.sourcelink.json
