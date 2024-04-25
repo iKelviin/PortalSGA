@@ -35,7 +35,7 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     HomeEmpresaComponent,
     ModalEmpresaComponent,
     InputSearchComponent,
-    InputSelectComponent,
+    InputSelectComponent,    
     
   ],
   imports: [

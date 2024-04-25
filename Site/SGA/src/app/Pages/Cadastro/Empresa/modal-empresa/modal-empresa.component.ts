@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { emailValidator } from '../../../../Shared/Utils/Validators/emailValidator';
 
 export interface UsersData {
   name: string;
@@ -38,7 +39,9 @@ export class ModalEmpresaComponent  implements OnInit{
 
   creatForm(): void {
     this.tableForm = this.formBuilder.group({
-      nome: ['', Validators.required]
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, emailValidator()]],
+      ativo: [true],
     });
   }
 
@@ -67,6 +70,11 @@ export class ModalEmpresaComponent  implements OnInit{
 
 
       this.dialogRef.close({ data: { action: this.action, data: formData } });
+  }
+
+  VerificaStatus(): string {
+    const statusControl = this.tableForm.get('ativo');
+    return statusControl && statusControl.value ? 'Ativo' : 'Inativo';
   }
 
 }
