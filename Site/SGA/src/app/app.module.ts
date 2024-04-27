@@ -22,6 +22,7 @@ import { provideHotToastConfig } from '@ngneat/hot-toast';
 import { InputSearchComponent } from './Shared/Components/input-search/input-search.component';
 import { InputSelectComponent } from './Shared/Components/input-select/input-select.component';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import { NgxViacepModule } from "@brunoc/ngx-viacep"; // Importando o módulo
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTableExporterModule
+    MatTableExporterModule,
+    NgxViacepModule
   ],
   exports:[
     AppMaterialModule,
@@ -67,7 +69,8 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     provideHotToastConfig(
       {
         stacking: "depth",
-        visibleToasts: 5
+        visibleToasts: 5,
+        reverseOrder: true
       }
     ),
   ],

@@ -26,3 +26,9 @@ input:focus {
 .radius-5 {
   border-radius: 5px;
 }
+
+
+.form-control:focus {
+  border-color: var(--blue-main);
+  box-shadow: 0 0 0 0.03rem var(--blue-main);
+}

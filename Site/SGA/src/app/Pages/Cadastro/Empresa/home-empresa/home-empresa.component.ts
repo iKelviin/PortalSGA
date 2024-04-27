@@ -13,6 +13,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { ModalEmpresaComponent } from '../modal-empresa/modal-empresa.component';
 import { MatRadioChange } from '@angular/material/radio';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-home-empresa',
@@ -58,17 +59,18 @@ export class HomeEmpresaComponent implements OnInit{
   selectedEmpresa: string = 'all';
 
   displayedColumns: DisplayColumn[] = [
-    { def: 'select', label: 'Seleção', hide: false },
-    { def: 'id', label: 'ID', hide: false },
-    { def: 'nome', label: 'Nome', hide: false },
-    { def: 'email', label: 'Email', hide: false },
-    { def: 'telefone', label: 'Telefone', hide: false },
-    { def: 'endereco', label: 'Endereço', hide: false },
-    { def: 'numero', label: 'Numero', hide: false },
-    { def: 'cidade', label: 'Cidade', hide: false },
-    { def: 'bairro', label: 'Bairro', hide: false },
-    { def: 'estado', label: 'Estado', hide: false },
-    { def: 'action', label: 'Ação', hide: false }
+    { def: 'select', label: 'Seleção', hide: false, export: false},
+    { def: 'id', label: 'ID', hide: false, export: true },
+    { def: 'nome', label: 'Nome', hide: false, export: true },
+    { def: 'email', label: 'Email', hide: false, export: true },
+    { def: 'telefone', label: 'Telefone', hide: true, export: true },
+    { def: 'endereco', label: 'Endereço', hide: true, export: true },
+    { def: 'numero', label: 'Numero', hide: true, export: true },
+    { def: 'cidade', label: 'Cidade', hide: true, export: true },
+    { def: 'bairro', label: 'Bairro', hide: true, export: true },
+    { def: 'estado', label: 'Estado', hide: true, export: true },
+    { def: 'ativo', label: 'Status', hide: false, export: true },
+    { def: 'action', label: 'Ação', hide: false, export: false }
   ];
 
   // Used in the template
@@ -93,7 +95,7 @@ export class HomeEmpresaComponent implements OnInit{
     this.selection = new SelectionModel<Empresa>(true, []);
 
     // Update with columns to be displayed
-    this.disColumns = this.displayedColumns.map(cd => cd.def)
+    this.disColumns = this.displayedColumns.filter(cd => !cd.hide).map(cd => cd.def)
 
     this.listarEmpresas();
   }
@@ -173,11 +175,13 @@ export class HomeEmpresaComponent implements OnInit{
           this.addRowData(result.data);
           this.toast.success('Cadastrado com sucesso!');
           this.ClearSelection();
+          this.listarEmpresas();
 
         } else if (action == this.edit) {
           this.updateRowData(result.data);
           this.toast.success('Editado com sucesso!');
           this.ClearSelection();
+          this.listarEmpresas();
         } else {
           console.log(action);
         }
@@ -228,6 +232,59 @@ export class HomeEmpresaComponent implements OnInit{
   // Open confirmation dialog
 openDeleteDialog(len: number, rows: Empresa[]): void {
   const options = {
+    title: 'Deletar?',
+    message: `Você tem certeza que deseja deletar ${len} linha(s)?`,
+    cancelText: 'Não',
+    confirmText: 'Sim'
+  };
+
+  // If user confirms, remove selected rows from data table
+  this.alertService.open(options);
+  this.alertService.confirmed().subscribe(confirmed => {
+    if (confirmed) {
+      this.deleteRows(rows);      
+      this.listarEmpresas();
+      this.ClearSelection();
+    }
+  });
+}
+
+deleteRows(rows: Empresa[] | Empresa): void {
+
+  if (Array.isArray(rows)) {
+    rows.forEach(row => {
+      this.deleteRow(row);
+    });
+  } else {
+    this.deleteRow(rows);
+  }
+}
+
+// Delete a single row by 'row' delete button
+deleteRow(row: Empresa): void {
+  const index = this.dataSource.data.findIndex((item) => item.id === row.id);
+  if (index > -1) {
+    
+    this.empresaService.delete(row).pipe(
+      this.toast.observe({
+        loading: 'Excluindo Empresa...',
+        success: 'Empresa excluida com sucesso!',
+        error: 'Falha ao excluir a empresa.'
+      })
+     ).subscribe({
+      next: () => {
+        this.dataSource.data.splice(index, 1);
+        this.dataSource.data = [...this.dataSource.data];
+      },
+      error: (error) => {
+        console.error('Erro ao excluir a linha:', error);
+      }
+    });
+  }
+}
+
+openDisableDialog(len: number, rows: Empresa[]): void {
+  const options = {
     title: 'Desativar?',
     message: `Você tem certeza que deseja desativar ${len} linha(s)?`,
     cancelText: 'Não',
@@ -238,9 +295,44 @@ openDeleteDialog(len: number, rows: Empresa[]): void {
   this.alertService.open(options);
   this.alertService.confirmed().subscribe(confirmed => {
     if (confirmed) {
-      //this.deleteRows(rows);
+      this.disableRows(rows);
+      this.listarEmpresas();
     }
   });
+}
+
+disableRows(rows: Empresa[] | Empresa): void {
+
+  if (Array.isArray(rows)) {
+    rows.forEach(row => {
+      this.disableRow(row);
+    });
+  } else {
+    this.disableRow(rows);
+  }
+}
+
+// Delete a single row by 'row' delete button
+disableRow(row: Empresa): void {
+  const index = this.dataSource.data.findIndex((item) => item.id === row.id);
+  if (index > -1) {
+    row.ativo = false;
+    this.empresaService.post(row).pipe(
+      this.toast.observe({
+        loading: 'Desativando Empresa...',
+        success: 'Empresa desativada com sucesso!',
+        error: 'Falha ao desativar a empresa.'
+      })
+     ).subscribe({
+      next: () => {
+        this.dataSource.data.splice(index, 1);
+        this.dataSource.data = [...this.dataSource.data];
+      },
+      error: (error) => {
+        console.error('Erro ao desativar a linha:', error);
+      }
+    });
+  }
 }
 
 radioButtonChange(event: MatRadioChange) {
@@ -298,15 +390,10 @@ radioButtonChange(event: MatRadioChange) {
 
 
   
-
-}
-
-
 //Método de importação Excel
 
-/*
+
 fileName = "";
-ColumnsExcel: String[] = ['ID', 'Nome'];
 
 exportToExcel(): void {
   // Solicita ao usuário que insira o nome do arquivo
@@ -314,16 +401,21 @@ exportToExcel(): void {
   if (fileName) {
     const data: Empresa[] = this.dataSource.data;
     const excelData: any[] = [];
-    excelData.push(this.ColumnsExcel);
+    excelData.push(this.displayedColumns.filter(c=> c.export).map(cd => cd.label));
 
     data.forEach(item => {
       const row = [];
-      row.push(item.id);
-      row.push(item.nome);
-      row.push(item.nomeAbreviado);
-      row.push(item.descricao);
-      row.push(item.ativo ? 'Ativo' : 'Inativo');
-      excelData.push(row);
+        row.push(item.id);
+        row.push(item.nome);
+        row.push(item.email);
+        row.push(item.telefone);
+        row.push(item.endereco);
+        row.push(item.numero);
+        row.push(item.cidade);
+        row.push(item.bairro);
+        row.push(item.estado);
+        row.push(item.ativo ? 'Ativo' : 'Inativo');
+        excelData.push(row);
     });
 
     const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(excelData);
@@ -334,8 +426,9 @@ exportToExcel(): void {
     XLSX.writeFile(wb, `${fileName}.xlsx`);
   }
 }
+}
 
-*/
+
 
 
 

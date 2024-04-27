@@ -4,6 +4,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { emailValidator } from '../../../../Shared/Utils/Validators/emailValidator';
 import { telefoneValidator } from '../../../../Shared/Utils/Validators/telefoneValidator';
 import { cepValidator } from '../../../../Shared/Utils/Validators/cepValidator';
+import { CEPError, Endereco, NgxViacepService } from '@brunoc/ngx-viacep';
+import { EMPTY, catchError } from 'rxjs';
 
 export interface UsersData {
   name: string;
@@ -17,7 +19,7 @@ export interface UsersData {
 })
 
 export class ModalEmpresaComponent  implements OnInit{
-
+  public cepInvalido: boolean;
   action: string;
   local_data: any;
   countries!: string[];
@@ -28,7 +30,9 @@ export class ModalEmpresaComponent  implements OnInit{
   constructor(
     public dialogRef: MatDialogRef<ModalEmpresaComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: UsersData,
-    private formBuilder: FormBuilder,) {
+    private formBuilder: FormBuilder,
+    private viacep: NgxViacepService
+  ) {
     this.local_data = { ...data };
     this.action = this.local_data.action;
     this.creatForm();
@@ -46,7 +50,7 @@ export class ModalEmpresaComponent  implements OnInit{
       telefone: ['', [telefoneValidator()]],
       cep: ['', [Validators.required,cepValidator()]],
       endereco: ['', Validators.required],
-      numero: ['', Validators.required],
+      numero: ['', [Validators.pattern(/^[0-9]*$/)]],
       complemento: [''],
       cidade: ['', Validators.required],
       bairro: ['', Validators.required],
@@ -85,6 +89,25 @@ export class ModalEmpresaComponent  implements OnInit{
   VerificaStatus(): string {
     const statusControl = this.tableForm.get('ativo');
     return statusControl && statusControl.value ? 'Ativo' : 'Inativo';
+  }
+
+  getEndereco() {
+    let cep: string = this.tableForm.get('cep')?.value;
+    this.viacep.buscarPorCep(cep)
+    .pipe(
+      catchError((error: CEPError) => {
+        console.log(error.message);
+        this.cepInvalido = true;
+        return EMPTY;
+      })
+    )
+    .subscribe((endereco: Endereco) => {
+      this.cepInvalido = false;
+      this.tableForm.controls['endereco'].setValue(endereco.logradouro);
+      this.tableForm.controls['bairro'].setValue(endereco.bairro);
+      this.tableForm.controls['cidade'].setValue(endereco.localidade);
+      this.tableForm.controls['estado'].setValue(endereco.uf);
+    });
   }
 
 }

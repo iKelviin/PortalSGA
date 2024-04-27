@@ -1,85 +1,96 @@
 <mat-card class="p-4" style="max-width: 50rem;">
 
     <mat-card-header>
-      <span mat-card-avatar class="material-symbols-outlined">home_work</span>
+      <span mat-card-avatar class="material-symbols-outlined">domain</span>
       <mat-card-title>{{action}} Empresa</mat-card-title>
     </mat-card-header>
 
     <mat-divider></mat-divider>
   
-    <form class="mt-4" novalidate (ngSubmit)="onSubmit()" [formGroup]="tableForm" role="form">
+    <form class="mt-4 needs-validation" novalidate (ngSubmit)="onSubmit()" [formGroup]="tableForm" role="form">
       <mat-card-content>
         <div class="row">
           <div class="col-md-6">
             <div class="mb-2">    
-              <label class="form-label">Nome da Empresa</label>          
-              <input type="text" class="form-control" formControlName="nome" placeholder="Ex. Plural Indústria Gráfica" aria-label="nome" aria-describedby="basic-addon1">                           
+              <label for="validationCustom01" class="form-label">Nome da Empresa*</label>          
+              <input type="text" class="form-control mat-elevation-z1" formControlName="nome" placeholder="Nome da Empresa" aria-label="nome" required
+              [ngClass]="{'is-invalid': tableForm.get('nome')?.touched && tableForm.get('nome')?.hasError('required'),'is-valid': tableForm.get('nome')?.touched && tableForm.get('nome')?.valid}">                           
+              <div class="invalid-feedback" *ngIf="tableForm.get('nome')?.touched && tableForm.get('nome')?.hasError('required')">O <strong>Nome da Empresa</strong> é obrigatório.</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="mb-2">
-              <label class="form-label">Email</label>
-              <input required type="email" class="form-control" placeholder="name@example.com" formControlName="email">              
-              <mat-error *ngIf="tableForm.get('email')?.touched && tableForm.get('email')?.hasError('required')">O <strong>Email</strong> é obrigatório.</mat-error>
-              <mat-error *ngIf="tableForm.get('email')?.hasError('invalidEmailPattern') && !tableForm.get('email')?.hasError('required')">O <strong>Email</strong> é inválido.</mat-error>
+              <label class="form-label">Email*</label>
+              <input required type="email" class="form-control mat-elevation-z1" placeholder="name@example.com" formControlName="email" 
+              [ngClass]="{'is-invalid': tableForm.get('email')?.touched && tableForm.get('email')?.hasError('invalidEmailPattern'),'is-valid': tableForm.get('email')?.touched && tableForm.get('email')?.valid}">                            
+              <div *ngIf="tableForm.get('email')?.touched && tableForm.get('email')?.hasError('required')" class="invalid-feedback">O <strong>Email</strong> é obrigatório.</div>
+              <div *ngIf="tableForm.get('email')?.hasError('invalidEmailPattern') && !tableForm.get('email')?.hasError('required')" class="invalid-feedback">O <strong>Email</strong> é inválido.</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="mb-2">
               <label class="form-label">Telefone</label>
-              <input class="form-control" placeholder="(00) 90000-0000" formControlName="telefone" type="tel">              
-              <mat-error *ngIf="tableForm.get('telefone')?.hasError('invalidTelefonePattern') && !tableForm.get('telefone')?.hasError('minlength')">O <strong>Telefone</strong> é inválido.</mat-error>
+              <input class="form-control mat-elevation-z1" placeholder="(00) 90000-0000" formControlName="telefone" type="tel"
+              [ngClass]="{'is-invalid': tableForm.get('telefone')?.hasError('invalidTelefonePattern') && !tableForm.get('telefone')?.hasError('minlength'),'is-valid': tableForm.get('telefone')?.touched && tableForm.get('telefone')?.dirty}">                                          
+              <div class="invalid-feedback" *ngIf="tableForm.get('telefone')?.hasError('invalidTelefonePattern') && !tableForm.get('telefone')?.hasError('minlength')">O <strong>Telefone</strong> é inválido.</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="mb-2">
-              <label class="form-label">Cep</label>
-              <input required class="form-control" placeholder="000000-00" formControlName="cep" type="text">              
-              <mat-error *ngIf="tableForm.get('cep')?.touched && tableForm.get('cep')?.hasError('required')">O <strong>Cep</strong> é obrigatório.</mat-error>
-              <mat-error *ngIf="tableForm.get('cep')?.hasError('invalidCepPattern') && !tableForm.get('cep')?.hasError('minlength')">O <strong>cep</strong> é inválido.</mat-error>
+              <label class="form-label">Cep*</label>
+              <input required class="form-control mat-elevation-z1 mat-elevation-z1" placeholder="CEP" formControlName="cep" type="text" (change)="getEndereco()"
+              [ngClass]="{'is-invalid':  tableForm.get('cep')?.hasError('invalidCepPattern') || cepInvalido,
+              'is-valid': tableForm.get('cep')?.touched && !tableForm.get('cep')?.hasError('required') && !tableForm.get('cep')?.hasError('invalidCepPattern') && !cepInvalido}">              
+              <div class="invalid-feedback" *ngIf="tableForm.get('cep')?.touched && tableForm.get('cep')?.hasError('required')">O <strong>Cep</strong> é obrigatório.</div>
+              <div class="invalid-feedback" *ngIf="tableForm.get('cep')?.hasError('invalidCepPattern') && !tableForm.get('cep')?.hasError('minlength')">O <strong>cep</strong> é inválido.</div>
             </div>
           </div>
           <div class="col-md-12">
             <div class="mb-2">
-              <label class="form-label">Endereço</label>
-              <input required class="form-control" placeholder="Av. Teixeira Barreto" formControlName="endereco" type="text">              
-              <mat-error *ngIf="tableForm.get('endereco')?.touched && tableForm.get('cep')?.hasError('required')">O <strong>Endereço</strong> é obrigatório.</mat-error>
+              <label class="form-label">Endereço*</label>              
+              <input required class="form-control mat-elevation-z1" placeholder="Endereço" formControlName="endereco" type="text"
+              [ngClass]="{'is-invalid': tableForm.get('endereco')?.touched && tableForm.get('endereco')?.hasError('required'),'is-valid':tableForm.get('endereco')?.touched && tableForm.get('endereco')?.valid}">                                         
+              <div class="invalid-feedback" *ngIf="tableForm.get('endereco')?.touched && tableForm.get('endereco')?.hasError('required')">O <strong>Endereço</strong> é obrigatório.</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-2">
+              <label class="form-label">Bairro*</label>
+              <input required class="form-control mat-elevation-z1" placeholder="Bairro" formControlName="bairro" type="text"
+              [ngClass]="{'is-invalid': tableForm.get('bairro')?.touched && tableForm.get('bairro')?.hasError('required'),'is-valid':tableForm.get('bairro')?.touched && tableForm.get('bairro')?.valid}">                                          
+              <div class="invalid-feedback" *ngIf="tableForm.get('bairro')?.touched && tableForm.get('bairro')?.hasError('required')">O <strong>Bairro</strong> é obrigatório.</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-2">
+              <label class="form-label">Cidade*</label>
+              <input required class="form-control mat-elevation-z1" placeholder="Cidade" formControlName="cidade" type="text"
+              [ngClass]="{'is-invalid': tableForm.get('cidade')?.touched && tableForm.get('cidade')?.hasError('required'),'is-valid': tableForm.get('cidade')?.touched && tableForm.get('cidade')?.valid}">                                                               
+              <div class="invalid-feedback" *ngIf="tableForm.get('cidade')?.touched && tableForm.get('cidade')?.hasError('required')">A <strong>Cidade</strong> é obrigatória.</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-2">
+              <label class="form-label">Estado*</label>
+              <input required class="form-control mat-elevation-z1" placeholder="SP" formControlName="estado" type="text"
+              [ngClass]="{'is-invalid': tableForm.get('estado')?.touched && tableForm.get('estado')?.hasError('required'),'is-valid': tableForm.get('estado')?.touched && tableForm.get('estado')?.valid}">                                                                                         
+              <div class="invalid-feedback" *ngIf="tableForm.get('estado')?.touched && tableForm.get('estado')?.hasError('required')">O <strong>Estado</strong> é obrigatório.</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="mb-2">
               <label class="form-label">Numero</label>
-              <input required class="form-control" placeholder="Número" formControlName="numero" type="text">              
-              <mat-error *ngIf="tableForm.get('numero')?.touched && tableForm.get('numero')?.hasError('required')">O <strong>Número</strong> é obrigatório.</mat-error>
+              <input class="form-control mat-elevation-z1" placeholder="Número" formControlName="numero" type="text"
+              [ngClass]="{'is-invalid': tableForm.get('numero')?.touched && tableForm.get('numero')?.invalid && tableForm.get('numero')?.hasError('pattern'),'is-valid': tableForm.get('numero')?.touched && !tableForm.get('numero')?.hasError('pattern')}">
+              <div class="invalid-feedback" *ngIf="tableForm.get('numero')?.touched && tableForm.get('numero')?.invalid && tableForm.get('numero')?.hasError('pattern')">O <strong>Número</strong> é invalido.</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="mb-2">
               <label class="form-label">Complemento</label>
-              <input class="form-control" placeholder="Complemento" formControlName="complemento" type="text">                            
+              <input class="form-control mat-elevation-z1" placeholder="Complemento" formControlName="complemento" type="text">                          
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="mb-2">
-              <label class="form-label">Bairro</label>
-              <input required class="form-control" placeholder="Bairro" formControlName="bairro" type="text">              
-              <mat-error *ngIf="tableForm.get('bairro')?.touched && tableForm.get('bairro')?.hasError('required')">O <strong>Bairro</strong> é obrigatório.</mat-error>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="mb-2">
-              <label class="form-label">Cidade</label>
-              <input required class="form-control" placeholder="Cidade" formControlName="cidade" type="text">                            
-              <mat-error *ngIf="tableForm.get('cidade')?.touched && tableForm.get('cidade')?.hasError('required')">A <strong>Cidade</strong> é obrigatória.</mat-error>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="mb-2">
-              <label class="form-label">Estado</label>
-              <input required class="form-control" placeholder="Ex. São Paulo" formControlName="estado" type="text">                            
-              <mat-error *ngIf="tableForm.get('estado')?.touched && tableForm.get('estado')?.hasError('required')">O <strong>Estado</strong> é obrigatório.</mat-error>
-            </div>
-          </div>
+          </div>          
         </div>
         <div class="row">
           <div class="mb-2">

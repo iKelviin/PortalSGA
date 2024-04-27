@@ -30,13 +30,13 @@
         </button>
 
         <button mat-mini-fab color="primary" class="ms-3" style="background-color: rgb(255, 60, 60);color:white"
-        (click)="openDeleteDialog(selection.selected.length, selection.selected)"
+        (click)="openDisableDialog(selection.selected.length, selection.selected)"
         [disabled]="!selection.hasValue()" matTooltip="Desativar">
         <mat-icon>do_not_disturb_on</mat-icon>
         </button>
     
         <button mat-mini-fab style="background: green;"matTooltip="Exportar"
-         class="ms-3">
+         class="ms-3" (click)="exportToExcel()">
           <mat-icon>save_alt</mat-icon>
         </button>
       </div>
@@ -144,7 +144,7 @@
               <mat-icon style="color: rgb(255, 60, 60);">delete</mat-icon>
             </button>
 
-            <button mat-icon-button color="primary" (click)="openDeleteDialog(1, empresa)" matTooltip="Desativar">
+            <button mat-icon-button color="primary" (click)="openDisableDialog(1, empresa)" matTooltip="Desativar">
                 <mat-icon style="color: rgb(255, 60, 60);">do_not_disturb_on</mat-icon>
             </button>
   

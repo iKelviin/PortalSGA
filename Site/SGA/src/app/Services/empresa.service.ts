@@ -28,6 +28,11 @@ export class EmpresaService {
             .pipe(map(s => s));
   }
 
+  delete(empresa: Empresa): Observable<Empresa>{
+    return this.http.delete<Empresa>(`${this.baseURL}/${this.endpointEmpresa}/${empresa.id}`)
+            .pipe(map(s => s));
+  }
+
 
 }
 
