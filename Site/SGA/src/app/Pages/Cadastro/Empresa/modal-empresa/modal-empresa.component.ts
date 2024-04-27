@@ -2,6 +2,8 @@ import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { emailValidator } from '../../../../Shared/Utils/Validators/emailValidator';
+import { telefoneValidator } from '../../../../Shared/Utils/Validators/telefoneValidator';
+import { cepValidator } from '../../../../Shared/Utils/Validators/cepValidator';
 
 export interface UsersData {
   name: string;
@@ -41,6 +43,14 @@ export class ModalEmpresaComponent  implements OnInit{
     this.tableForm = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, emailValidator()]],
+      telefone: ['', [telefoneValidator()]],
+      cep: ['', [Validators.required,cepValidator()]],
+      endereco: ['', Validators.required],
+      numero: ['', Validators.required],
+      complemento: [''],
+      cidade: ['', Validators.required],
+      bairro: ['', Validators.required],
+      estado: ['', Validators.required],
       ativo: [true],
     });
   }
