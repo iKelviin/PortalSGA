@@ -32,3 +32,19 @@ input:focus {
   border-color: var(--blue-main);
   box-shadow: 0 0 0 0.03rem var(--blue-main);
 }
+
+#pageTitle {
+  color: #004380;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+select:required:invalid {
+  color: gray;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}

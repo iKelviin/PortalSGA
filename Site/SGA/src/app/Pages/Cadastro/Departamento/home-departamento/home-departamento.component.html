@@ -1,0 +1,121 @@
+<div class="container-fluid pb-5">
+    <h1 class="font-text-title mb-1 pt-5" id="pageTitle">Lista de Departamentos</h1>
+    <p class="mb-5">Lista de Departamentos salvos na base de dados.</p>
+
+    <form role="form" [formGroup]="tableForm">
+        <div class="w-25 mb-3">
+            <select class="form-select form-select input-select mat-elevation-z1" 
+                    formControlName="idEmpresa"
+                    (change)="onChangeEmpresa($event)">
+              <option value="" disabled selected>Empresa</option>
+              <option *ngFor="let empresa of lstEmpresas.data" value="{{empresa.id}}" >
+                {{empresa.nome}}
+              </option>
+            </select>
+        </div>
+    </form>
+
+    <div class="container-options">
+
+        <app-input-search class="search" type="text" placeholder="Pesquisar" width="100%" matInput (keyup)="applyFilter($event)" #input></app-input-search>
+
+        <div class="buttons">
+            <button mat-mini-fab style="background-color: var(--blue-main);" (click)="openAddEditDialog(add, {})" matTooltip="Cadastrar">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <button mat-mini-fab style="background-color: var(--blue-main);" (click)="toggleForm()" matTooltip="Mostrar/Ocultar Colunas">
+                <mat-icon>remove_red_eye</mat-icon>
+            </button>
+
+            <button mat-mini-fab style="background-color: rgb(255, 60, 60);color: white;"
+            (click)="openDeleteDialog(selection.selected.length, selection.selected)" [disabled]="!selection.hasValue()" matTooltip="Deletar">
+                <mat-icon>delete</mat-icon>
+            </button>
+
+            <button mat-mini-fab style="background-color: green;" matTooltip="Exportar">
+                <mat-icon>save_alt</mat-icon>
+            </button>
+        </div>
+
+    </div>
+
+    <div fxLayout="row wrap" [@animation] class="mb5 d-flex justify-content-between flex-wrap">
+        <div fxFlex="20" fxFlex.lt-sm="50" *ngFor="let item of checkBoxList">
+          <mat-checkbox (change)="hideColumn($event, item.def)" [checked]="item.hide" color="primary">
+            {{ item.label }}
+          </mat-checkbox>
+        </div>
+    </div>
+
+    <div class="responsive-table">
+        <table mat-table matTableExporter [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+        
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox class="checkbox-header" (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()" color="primary"> 
+                  </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row" class="checkbox-cell">
+                  <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)" color="primary">
+                  </mat-checkbox>
+              </td>
+            </ng-container>  
+          
+            
+  
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.id}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.nome}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="centroCusto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Centro de Custo </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.centroCusto}} </td>
+          </ng-container>        
+  
+          <ng-container matColumnDef="idEmpresa">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </th>
+              <td mat-cell *matCellDef="let departamento"> {{departamento.idEmpresa}}</td>
+          </ng-container>
+    
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Ação</th>
+            <td mat-cell *matCellDef="let departamento">
+    
+              <button mat-icon-button style="color: var(--blue-main)" (click)="openAddEditDialog(edit, departamento)" matTooltip="Editar">
+                <mat-icon>edit</mat-icon>
+              </button>
+    
+              <button mat-icon-button color="primary" (click)="openDeleteDialog(1, departamento)" matTooltip="Deletar">
+                <mat-icon style="color: rgb(255, 60, 60);">delete</mat-icon>
+              </button>
+    
+            </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="disColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: disColumns;"
+          (click)="selection.toggle(row)">
+          </tr>
+    
+        </table>
+
+        <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
+            <mat-progress-spinner color="primary" mode="indeterminate">
+            </mat-progress-spinner>
+          </mat-card>
+      
+        <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[10, 20 ,50]" showFirstLastButtons></mat-paginator>
+    </div>
+
+</div>

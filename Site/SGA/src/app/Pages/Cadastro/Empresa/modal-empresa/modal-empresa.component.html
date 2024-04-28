@@ -38,9 +38,9 @@
           <div class="col-md-6">
             <div class="mb-2">
               <label class="form-label">Cep*</label>
-              <input required class="form-control mat-elevation-z1 mat-elevation-z1" placeholder="CEP" formControlName="cep" type="text" (change)="getEndereco()"
-              [ngClass]="{'is-invalid':  tableForm.get('cep')?.hasError('invalidCepPattern') || cepInvalido,
-              'is-valid': tableForm.get('cep')?.touched && !tableForm.get('cep')?.hasError('required') && !tableForm.get('cep')?.hasError('invalidCepPattern') && !cepInvalido}">              
+              <input required class="form-control mat-elevation-z1" placeholder="CEP" formControlName="cep" type="text" (change)="getEndereco()"
+              [ngClass]="{'is-invalid': tableForm.get('cep')?.touched && tableForm.get('cep')?.hasError('required') || tableForm.get('cep')?.hasError('invalidCepPattern') || cepInvalido,
+              'is-valid': tableForm.get('cep')?.touched && !tableForm.get('cep')?.hasError('invalidCepPattern') && !tableForm.get('cep')?.hasError('required') && !cepInvalido}">              
               <div class="invalid-feedback" *ngIf="tableForm.get('cep')?.touched && tableForm.get('cep')?.hasError('required')">O <strong>Cep</strong> é obrigatório.</div>
               <div class="invalid-feedback" *ngIf="tableForm.get('cep')?.hasError('invalidCepPattern') && !tableForm.get('cep')?.hasError('minlength')">O <strong>cep</strong> é inválido.</div>
             </div>
@@ -81,7 +81,7 @@
             <div class="mb-2">
               <label class="form-label">Numero</label>
               <input class="form-control mat-elevation-z1" placeholder="Número" formControlName="numero" type="text"
-              [ngClass]="{'is-invalid': tableForm.get('numero')?.touched && tableForm.get('numero')?.invalid && tableForm.get('numero')?.hasError('pattern'),'is-valid': tableForm.get('numero')?.touched && !tableForm.get('numero')?.hasError('pattern')}">
+              [ngClass]="{'is-invalid': tableForm.get('numero')?.touched && tableForm.get('numero')?.invalid && tableForm.get('numero')?.hasError('pattern'),'is-valid': tableForm.get('numero')?.touched && !tableForm.get('numero')?.hasError('pattern') && tableForm.get('numero')?.invalid}">
               <div class="invalid-feedback" *ngIf="tableForm.get('numero')?.touched && tableForm.get('numero')?.invalid && tableForm.get('numero')?.hasError('pattern')">O <strong>Número</strong> é invalido.</div>
             </div>
           </div>

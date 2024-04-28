@@ -22,7 +22,9 @@ import { provideHotToastConfig } from '@ngneat/hot-toast';
 import { InputSearchComponent } from './Shared/Components/input-search/input-search.component';
 import { InputSelectComponent } from './Shared/Components/input-select/input-select.component';
 import { MatTableExporterModule } from 'mat-table-exporter';
-import { NgxViacepModule } from "@brunoc/ngx-viacep"; // Importando o módulo
+import { NgxViacepModule } from "@brunoc/ngx-viacep";
+import { HomeDepartamentoComponent } from './Pages/Cadastro/Departamento/home-departamento/home-departamento.component';
+import { ModalDepartamentoComponent } from './Pages/Cadastro/Departamento/modal-departamento/modal-departamento.component'; // Importando o módulo
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { NgxViacepModule } from "@brunoc/ngx-viacep"; // Importando o módulo
     HomeEmpresaComponent,
     ModalEmpresaComponent,
     InputSearchComponent,
-    InputSelectComponent,    
+    InputSelectComponent,
+    HomeDepartamentoComponent,
+    ModalDepartamentoComponent,    
     
   ],
   imports: [

@@ -18,6 +18,5 @@ export class InputSearchComponent implements OnInit{
     } else {
       this.outWidth = this.width + 'px';  // Assumir px se nenhuma unidade especificada
     }
-    console.log('outWidth',this.outWidth);
   }
 }

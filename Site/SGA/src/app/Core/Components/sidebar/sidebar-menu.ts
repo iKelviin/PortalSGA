@@ -57,19 +57,19 @@ export const sidebarData: ISidebarData[] = [
               //sublevel: 1,
             },
             {
-              routeLink: 'Departamentos',
+              routeLink: 'departamentos',
               icon: 'fiber_manual_record',
               label: 'Cadastro de Departamentos',
               //sublevel: 1
             },
             {
-              routeLink: 'Cargos',
+              routeLink: 'cargos',
               icon: 'fiber_manual_record',
               label: 'Cadastro de Cargos',
               //sublevel: 1
             },            
             {
-              routeLink: 'Usuarios',
+              routeLink: 'usuarios',
               icon: 'fiber_manual_record',
               label: 'Gestão de Usuários',
               //sublevel: 1

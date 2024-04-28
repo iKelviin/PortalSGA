@@ -1,0 +1,46 @@
+table,
+.form-fields {
+  width: 100%;
+}
+
+mat-paginator{
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.search{
+    width: 50%;
+  }
+  
+  .buttons{
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0;
+  }
+
+  .container-options {
+    display: flex;  
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    align-items: start;    
+    
+  }
+
+
+
+  // Media Queries para ajustar quando a tela é pequena
+@media (max-width: 1024px) {
+    
+  }
+  
+  @media (max-width: 768px) {
+    .container-options {
+      flex-direction: column;
+      row-gap: 10px;
+    }
+  }
+  

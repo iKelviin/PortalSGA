@@ -1,0 +1,289 @@
+import { animate, query, style, transition, trigger } from '@angular/animations';
+import { SelectionModel } from '@angular/cdk/collections';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Departamento } from '../../../../Models/Departamento';
+import { DisplayColumn } from '../../../../Models/DisplayColumn';
+import { DepartamentoService } from '../../../../Services/departamento.service';
+import { AlertService } from '../../../../Shared/Services/alert.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HotToastService } from '@ngneat/hot-toast';
+import { ModalDepartamentoComponent } from '../modal-departamento/modal-departamento.component';
+import { catchError, of } from 'rxjs';
+import { Empresa } from '../../../../Models/Empresa';
+import { EmpresaService } from '../../../../Services/empresa.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-home-departamento',
+  templateUrl: './home-departamento.component.html',
+  styleUrl: './home-departamento.component.scss',
+  animations: [
+    trigger('animation', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [
+            style({ transform: 'translateX(100%)', opacity: 0 }),
+            animate('500ms', style({ transform: 'translateX(0)', opacity: 1 }))
+          ],
+          { optional: true }
+        ),
+        query(
+          ':leave',
+          [
+            style({ transform: 'translateX(0)', opacity: 1 }),
+            animate('500ms', style({ transform: 'translateX(100%)', opacity: 0 }))
+          ],
+          {
+            optional: true
+          }
+        )
+      ])
+    ])]
+})
+export class HomeDepartamentoComponent implements OnInit{
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  ELEMENT_DATA!: Departamento[];
+  dataSource = new MatTableDataSource<Departamento>(this.ELEMENT_DATA);
+  dataSourceFiltered: Departamento[] = [];
+  lstEmpresas = new MatTableDataSource<Empresa>();
+  add: string = 'Cadastrar';
+  edit: string = 'Editar';
+  delete: string = 'Deletar';
+  isLoading: boolean = true;
+  selection!: SelectionModel<Departamento>;
+  cboEmpresaSelecionada: string = 'all';
+
+  displayedColumns: DisplayColumn[] = [
+    { def: 'select', label: 'Seleção', hide: false, export: false},
+    { def: 'id', label: 'ID', hide: true, export: true },
+    { def: 'nome', label: 'Nome', hide: false, export: true },
+    { def: 'centroCusto', label: 'Centro de Custo', hide: false, export: true },
+    { def: 'idEmpresa', label: 'Empresa', hide: true, export: false },
+    { def: 'action', label: 'Ação', hide: false, export: false }
+  ];
+
+  public tableForm: FormGroup = this.formBuilder.group({
+    idEmpresa: ['']
+  })
+
+  empresaSelecionada: Empresa = {
+    id: 0,
+    nome: '',
+    email: '',
+    telefone: '',
+    cep: '',
+    endereco: '',
+    numero: 0,
+    complemento: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
+    ativo: false
+  }
+
+  // Used in the template
+  disColumns!: string[];
+
+  checkBoxList: DisplayColumn[] = [];
+  
+  constructor(
+    private departamentoService: DepartamentoService,
+    private empresaService: EmpresaService,
+    public dialog: MatDialog,
+    private alertService: AlertService,
+    private toast: HotToastService,
+    private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute
+    ) {}
+
+  ngOnInit(): void {
+    // Apply paginator
+    this.dataSource.paginator = this.paginator;
+
+    // Apply sort option
+    this.dataSource.sort = this.sort;
+
+    this.selection = new SelectionModel<Departamento>(true, []);
+
+    // Update with columns to be displayed
+    this.disColumns = this.displayedColumns.filter(cd => !cd.hide).map(cd => cd.def)
+
+    this.listarEmpresas();
+    this.listarDepartamentos();
+
+    this.activatedRoute.params.subscribe(params => {
+      const idEmpresa = params['idEmpresa'];
+
+        if(idEmpresa !== undefined){
+          this.cboEmpresaSelecionada = idEmpresa;
+          this.empresaSelecionada.id = idEmpresa;
+
+        }else{
+          this.cboEmpresaSelecionada = 'all'
+
+        }
+      });
+  }
+
+  listarEmpresas(){
+    let resp = this.empresaService.getAll().pipe(
+      catchError(error =>{
+        this.toast.error('Erro ao carregar as empresas');
+        return of([])
+      }));
+
+      resp.subscribe((report) => {
+        this.lstEmpresas.data = report as Empresa[];
+        this.lstEmpresas.data = this.lstEmpresas.data.filter(x=> x.ativo === true);        
+      });
+  }
+
+  listarDepartamentos(){
+    let resp = this.departamentoService.getAll().pipe(
+      catchError(error =>{
+        this.toast.error('Erro ao carregar os departamentos');
+        return of([])
+      }));
+    setTimeout(() => {
+      resp.subscribe((report) => {
+        this.isLoading = false;
+        this.dataSource.data = report as Departamento[];
+        this.dataSourceFiltered = this.dataSource.data;
+      });
+    }, 1000);
+  }
+
+  applyFilter(event: any): void {
+    this.dataSource.filter = event.target.value.trim().toLowerCase();
+  }
+
+  // This function will be called when user click on select all check-box
+  isAllSelected(): boolean {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle(): void {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSource.data);
+  }
+
+  
+  // Show/Hide check boxes
+  showCheckBoxes(): void {
+    this.checkBoxList = this.displayedColumns;
+  }
+
+  hideCheckBoxes(): void {
+    this.checkBoxList = [];
+  }
+
+  toggleForm(): void {
+    this.checkBoxList.length ? this.hideCheckBoxes() : this.showCheckBoxes();
+  }
+
+  hideColumn(event: any, item: string) {
+    this.displayedColumns.forEach(element => {
+      if (element['def'] == item) {
+        element['hide'] = event.checked;
+      }
+    });
+    this.disColumns = this.displayedColumns.filter(cd => !cd.hide).map(cd => cd.def)
+  }
+
+  ClearSelection(){
+    this.selection.clear();
+    return;
+  }
+
+  openAddEditDialog(action: string, obj: any): void {
+    obj.action = action;
+    const dialogRef = this.dialog.open(ModalDepartamentoComponent, {
+      data: obj,
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '500ms'
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result != null) {
+        const action = result.data['action'];
+        delete result.data['action'];
+        if (action == this.add) {
+          if(result.data.ativo === null || result.data.ativo === undefined || result.data.ativo === ''){
+            result.data.ativo = false;
+          }
+          //this.addRowData(result.data);
+          this.toast.success('Cadastrado com sucesso!');
+          this.ClearSelection();
+          //this.listarEmpresas();
+
+        } else if (action == this.edit) {
+          //this.updateRowData(result.data);
+          this.toast.success('Editado com sucesso!');
+          this.ClearSelection();
+          //this.listarEmpresas();
+        } else {
+          console.log(action);
+        }
+      }
+    });
+  }
+
+    // Open confirmation dialog
+openDeleteDialog(len: number, rows: Departamento[]): void {
+  const options = {
+    title: 'Deletar?',
+    message: `Você tem certeza que deseja deletar ${len} linha(s)?`,
+    cancelText: 'Não',
+    confirmText: 'Sim'
+  };
+
+  // If user confirms, remove selected rows from data table
+  this.alertService.open(options);
+  this.alertService.confirmed().subscribe(confirmed => {
+    if (confirmed) {
+      //this.deleteRows(rows);      
+      //this.listarEmpresas();
+      this.ClearSelection();
+    }
+  });
+}
+
+public onChangeEmpresa(event: any){
+  const selectElement = event.target as HTMLSelectElement;
+  const value = selectElement.value;
+    const idEmpresa = parseInt(value);
+    this.empresaSelecionada.id = idEmpresa
+    let resp = this.departamentoService.getAllByEmpresa(idEmpresa).pipe(
+      catchError(error =>{
+        this.toast.error('Erro ao carregar os departamentos desta empresa.');
+        return of([])
+      }));
+
+      resp.subscribe((produtos: Departamento[]) => {
+        this.dataSource.data = produtos.filter(produtos => produtos.idEmpresa === idEmpresa);
+      });
+
+}
+
+
+
+}
