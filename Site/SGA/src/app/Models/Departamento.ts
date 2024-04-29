@@ -3,5 +3,6 @@ export interface Departamento{
     nome: string;
     centroCusto: number;
     idEmpresa: number;
+    nomeEmpresa: number;
   }
   

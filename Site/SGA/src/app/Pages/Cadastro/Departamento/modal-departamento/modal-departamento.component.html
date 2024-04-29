@@ -1,1 +1,56 @@
-<p>modal-departamento works!</p>
+<mat-card class="p-4" style="max-width: 30rem;">
+
+    <mat-card-header>
+        <span mat-card-avatar class="material-symbols-outlined">domain</span>
+      <mat-card-title>{{action}} Departamento</mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+
+    <form class="mt-4 needs-validation" (ngSubmit)="onSubmit()" [formGroup]="tableForm" novalidate role="form">
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <select class="form-select form-select input-select mat-elevation-z1" formControlName="idEmpresa">
+                        <option value="" disabled selected>Empresa</option>
+                        <option *ngFor="let empresa of lstEmpresas.data" value="{{empresa.id}}" >
+                            {{empresa.nome}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="mb-3">    
+                        <label for="validationCustom01" class="form-label">Nome do Departamento*</label>          
+                        <input type="text" class="form-control mat-elevation-z1" formControlName="nome" placeholder="Nome do Departamento" aria-label="nome" required
+                        [ngClass]="{'is-invalid': tableForm.get('nome')?.touched && tableForm.get('nome')?.hasError('required'),'is-valid': tableForm.get('nome')?.touched && tableForm.get('nome')?.valid}">                           
+                        <div class="invalid-feedback" *ngIf="tableForm.get('nome')?.touched && tableForm.get('nome')?.hasError('required')">O <strong>Nome do Departamento</strong> é obrigatório.</div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="mb-5">
+                        <label for="validationCustom01" class="form-label">Centro de Custo*</label>          
+                        <input type="text" class="form-control mat-elevation-z1" formControlName="centroCusto" placeholder="Centro de Custo" aria-label="nome" required
+                        [ngClass]="{'is-invalid': tableForm.get('centroCusto')?.touched && tableForm.get('centroCusto')?.hasError('required') || tableForm.get('centroCusto')?.hasError('pattern'),'is-valid': tableForm.get('centroCusto')?.touched && !tableForm.get('centroCusto')?.hasError('pattern') && !tableForm.get('centroCusto')?.hasError('required')}">
+                        <div class="invalid-feedback" *ngIf="tableForm.get('centroCusto')?.touched && tableForm.get('centroCusto')?.hasError('required') || tableForm.get('centroCusto')?.hasError('pattern')">O <strong>Centro de Custo</strong> é obrigatório.</div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+      <mat-card-actions class="mt-3 align-items-center justify-content-end">
+  
+        <button mat-raised-button class="me-5" color="primary" [disabled]="tableForm.invalid">
+          {{action}}
+        </button>
+  
+        <button mat-raised-button color="primary" type="button" (click)="closeDialog()">
+          Cancelar
+        </button>
+  
+      </mat-card-actions>
+    </form>
+
+</mat-card>

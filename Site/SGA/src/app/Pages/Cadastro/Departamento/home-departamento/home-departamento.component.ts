@@ -64,7 +64,7 @@ export class HomeDepartamentoComponent implements OnInit{
     { def: 'id', label: 'ID', hide: true, export: true },
     { def: 'nome', label: 'Nome', hide: false, export: true },
     { def: 'centroCusto', label: 'Centro de Custo', hide: false, export: true },
-    { def: 'idEmpresa', label: 'Empresa', hide: true, export: false },
+    { def: 'nomeEmpresa', label: 'Empresa', hide: false, export: false },
     { def: 'action', label: 'Ação', hide: false, export: false }
   ];
 

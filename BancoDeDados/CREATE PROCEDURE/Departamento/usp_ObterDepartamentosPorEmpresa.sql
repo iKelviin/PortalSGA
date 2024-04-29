@@ -5,12 +5,14 @@ CREATE PROCEDURE usp_ObterDepartamentosPorEmpresa
 AS
 BEGIN	
 	SELECT 
-		Id,
-		CentroCusto,
-		Nome,
-		IdEmpresa
+		tbl_Departamento.Id,
+		tbl_Departamento.CentroCusto,
+		tbl_Departamento.Nome,
+		tbl_Departamento.IdEmpresa,
+		tbl_Empresa.Nome as NomeEmpresa
 	FROM 
 		tbl_Departamento 
+		INNER JOIN tbl_Empresa on tbl_Empresa.Id = tbl_Departamento.IdEmpresa 
 	WHERE
-		IdEmpresa = @IdEmpresa		
+		tbl_Departamento.IdEmpresa = @IdEmpresa		
 END

@@ -22,7 +22,6 @@ export class ModalEmpresaComponent  implements OnInit{
   public cepInvalido: boolean;
   action: string;
   local_data: any;
-  countries!: string[];
   cancel: string = 'Cancel';
 
   tableForm!: FormGroup;
@@ -64,22 +63,14 @@ export class ModalEmpresaComponent  implements OnInit{
   }
 
   onSubmit(): void {
-    /*this.dialogRef.close({
-      data: { action: this.action, data: this.tableForm.value}});*/
-
       const formData = this.tableForm.value;
       console.log('formData:',formData);
 
       if(this.local_data.id == null){
-        //const novoId = uuidv4();
-        //formData.id = novoId;
         formData.id = 0;
-        //console.log("novo ID: ", novoId);
       }else{
 
-        formData.id = this.local_data.id; // Defina o ID antes de enviar os dados
-        console.log("local_data:",this.local_data);
-        console.log("Submit - formData", this.tableForm.value);
+        formData.id = this.local_data.id; 
       }
 
 
