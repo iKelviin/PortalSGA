@@ -24,7 +24,9 @@ import { InputSelectComponent } from './Shared/Components/input-select/input-sel
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { NgxViacepModule } from "@brunoc/ngx-viacep";
 import { HomeDepartamentoComponent } from './Pages/Cadastro/Departamento/home-departamento/home-departamento.component';
-import { ModalDepartamentoComponent } from './Pages/Cadastro/Departamento/modal-departamento/modal-departamento.component'; // Importando o módulo
+import { ModalDepartamentoComponent } from './Pages/Cadastro/Departamento/modal-departamento/modal-departamento.component';
+import { HomeCargoComponent } from './Pages/Cadastro/Cargo/home-cargo/home-cargo.component';
+import { ModalCargoComponent } from './Pages/Cadastro/Cargo/modal-cargo/modal-cargo.component'; // Importando o módulo
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { ModalDepartamentoComponent } from './Pages/Cadastro/Departamento/modal-
     InputSearchComponent,
     InputSelectComponent,
     HomeDepartamentoComponent,
-    ModalDepartamentoComponent,    
+    ModalDepartamentoComponent,
+    HomeCargoComponent,
+    ModalCargoComponent,    
     
   ],
   imports: [

@@ -62,9 +62,9 @@ export class HomeDepartamentoComponent implements OnInit{
   displayedColumns: DisplayColumn[] = [
     { def: 'select', label: 'Seleção', hide: false, export: false},
     { def: 'id', label: 'ID', hide: true, export: true },
-    { def: 'nome', label: 'Nome', hide: false, export: true },
+    { def: 'nomeEmpresa', label: 'Empresa', hide: true, export: false },
+    { def: 'nome', label: 'Departamento', hide: false, export: true },
     { def: 'centroCusto', label: 'Centro de Custo', hide: false, export: true },
-    { def: 'nomeEmpresa', label: 'Empresa', hide: false, export: false },
     { def: 'action', label: 'Ação', hide: false, export: false }
   ];
 
@@ -230,21 +230,90 @@ export class HomeDepartamentoComponent implements OnInit{
           if(result.data.ativo === null || result.data.ativo === undefined || result.data.ativo === ''){
             result.data.ativo = false;
           }
-          //this.addRowData(result.data);
+          this.addRowData(result.data);
           this.toast.success('Cadastrado com sucesso!');
           this.ClearSelection();
-          //this.listarEmpresas();
+          this.listarDepartamentos();
 
         } else if (action == this.edit) {
-          //this.updateRowData(result.data);
+          this.updateRowData(result.data);
           this.toast.success('Editado com sucesso!');
           this.ClearSelection();
-          //this.listarEmpresas();
+          this.listarDepartamentos();
         } else {
           console.log(action);
         }
       }
     });
+  }
+
+  // Add a row into to data table
+  addRowData(row_obj: any): void {
+    const data = this.dataSource.data
+ 
+    data.push(row_obj.data);
+    this.dataSource.data = data;
+    this.departamentoService.post(row_obj.data).subscribe(
+     (response: any) => {
+       if (!String(response.mensagem).includes('Erro')) {
+         row_obj.data.id = response.dados;
+       }
+     },
+     (error: any) => {
+       console.error('Erro ao adicionar registro:', error);
+     }
+    );
+  }
+ 
+  // Update a row in data table
+  updateRowData(row_obj: any): void {
+    if (row_obj === null) { return; }
+    const data = this.dataSource.data
+    this.dataSource.data = data;
+    this.departamentoService.post(row_obj.data).subscribe(
+     {
+       next: () => {
+         console.log("atualizado com sucesso: ",row_obj.data);
+       },
+       error: (error) => {
+         console.error('Erro ao atualizar a linha:', error);
+       }
+     }
+    );
+  }
+
+  deleteRows(rows: Departamento[] | Departamento): void {
+
+    if (Array.isArray(rows)) {
+      rows.forEach(row => {
+        this.deleteRow(row);
+      });
+    } else {
+      this.deleteRow(rows);
+    }
+  }
+  
+  // Delete a single row by 'row' delete button
+  deleteRow(row: Departamento): void {
+    const index = this.dataSource.data.findIndex((item) => item.id === row.id);
+    if (index > -1) {
+      
+      this.departamentoService.delete(row).pipe(
+        this.toast.observe({
+          loading: 'Excluindo Departamento...',
+          success: 'Departamento excluido com sucesso!',
+          error: 'Falha ao excluir o departamento.'
+        })
+       ).subscribe({
+        next: () => {
+          this.dataSource.data.splice(index, 1);
+          this.dataSource.data = [...this.dataSource.data];
+        },
+        error: (error) => {
+          console.error('Erro ao excluir a linha:', error);
+        }
+      });
+    }
   }
 
     // Open confirmation dialog
@@ -260,8 +329,8 @@ openDeleteDialog(len: number, rows: Departamento[]): void {
   this.alertService.open(options);
   this.alertService.confirmed().subscribe(confirmed => {
     if (confirmed) {
-      //this.deleteRows(rows);      
-      //this.listarEmpresas();
+      this.deleteRows(rows);      
+      this.listarDepartamentos();
       this.ClearSelection();
     }
   });

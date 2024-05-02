@@ -12,6 +12,6 @@ namespace Entity
         public string Nome { get; set; }
         public int CentroCusto { get; set; }
         public int IdEmpresa { get; set; }
-        public string NomeEmpresa { get; set; }
+        public string? NomeEmpresa { get; set; }
     }
 }

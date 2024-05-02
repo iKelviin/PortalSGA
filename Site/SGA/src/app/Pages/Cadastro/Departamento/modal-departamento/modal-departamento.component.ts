@@ -41,7 +41,7 @@ export class ModalDepartamentoComponent implements OnInit{
   listarEmpresas(){
     let resp = this.empresaService.getAll().pipe(
       catchError(error =>{
-        this.toast.error('Erro ao carregar os clientes');
+        this.toast.error('Erro ao carregar as empresas');
         return of([])
       }));
 
