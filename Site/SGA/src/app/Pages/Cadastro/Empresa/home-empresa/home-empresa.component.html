@@ -1,5 +1,6 @@
 
 <div class="container-fluid">
+  
   <h1 class="font-text-title mb-1 pt-5" id="pageTitle">Lista de Empresas</h1>
   <p class="mb-3">Lista de empresas salvas na base de dados.</p>
 
@@ -146,6 +147,10 @@
 
             <button mat-icon-button color="primary" (click)="openDisableDialog(1, empresa)" matTooltip="Desativar">
                 <mat-icon style="color: rgb(255, 60, 60);">do_not_disturb_on</mat-icon>
+            </button>
+
+            <button mat-icon-button style="color: var(--blue-main)" (click)="openViewChildDialog(1, empresa)" matTooltip="Visualizar Departamentos">
+              <mat-icon class="material-symbols-outlined">home_repair_service</mat-icon>
             </button>
   
           </td>

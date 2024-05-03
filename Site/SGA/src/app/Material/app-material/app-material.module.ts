@@ -29,6 +29,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
 
@@ -60,7 +62,8 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
     MatDividerModule,
     MatTooltipModule,
     MatTreeModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatGridListModule
     ],
 
 })

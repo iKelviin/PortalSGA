@@ -15,7 +15,7 @@ import { catchError, of } from 'rxjs';
 import { Empresa } from '../../../../Models/Empresa';
 import { EmpresaService } from '../../../../Services/empresa.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-departamento',
@@ -99,7 +99,8 @@ export class HomeDepartamentoComponent implements OnInit{
     private alertService: AlertService,
     private toast: HotToastService,
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private route: Router
     ) {}
 
   ngOnInit(): void {
@@ -114,21 +115,23 @@ export class HomeDepartamentoComponent implements OnInit{
     // Update with columns to be displayed
     this.disColumns = this.displayedColumns.filter(cd => !cd.hide).map(cd => cd.def)
 
-    this.listarEmpresas();
-    this.listarDepartamentos();
-
+    
     this.activatedRoute.params.subscribe(params => {
       const idEmpresa = params['idEmpresa'];
-
+      console.log(idEmpresa);
         if(idEmpresa !== undefined){
           this.cboEmpresaSelecionada = idEmpresa;
           this.empresaSelecionada.id = idEmpresa;
-
+          this.tableForm.get('idEmpresa')?.setValue(idEmpresa);
+          
         }else{
           this.cboEmpresaSelecionada = 'all'
 
         }
       });
+
+    this.listarEmpresas();
+    this.listarDepartamentos();
   }
 
   listarEmpresas(){
@@ -145,18 +148,33 @@ export class HomeDepartamentoComponent implements OnInit{
   }
 
   listarDepartamentos(){
-    let resp = this.departamentoService.getAll().pipe(
-      catchError(error =>{
-        this.toast.error('Erro ao carregar os departamentos');
-        return of([])
-      }));
-    setTimeout(() => {
-      resp.subscribe((report) => {
-        this.isLoading = false;
-        this.dataSource.data = report as Departamento[];
-        this.dataSourceFiltered = this.dataSource.data;
-      });
-    }, 1000);
+    if(this.cboEmpresaSelecionada == 'all'){
+      let resp = this.departamentoService.getAll().pipe(
+        catchError(error =>{
+          this.toast.error('Erro ao carregar os departamentos');
+          return of([])
+        }));
+      setTimeout(() => {
+        resp.subscribe((report) => {
+          this.isLoading = false;
+          this.dataSource.data = report as Departamento[];
+          this.dataSourceFiltered = this.dataSource.data;
+        });
+      }, 1000);
+    }else{
+      let resp = this.departamentoService.getAllByEmpresa(this.empresaSelecionada.id).pipe(
+        catchError(error =>{
+          this.toast.error('Erro ao carregar os departamentos');
+          return of([])
+        }));
+      setTimeout(() => {
+        resp.subscribe((report) => {
+          this.isLoading = false;
+          this.dataSource.data = report as Departamento[];
+          this.dataSourceFiltered = this.dataSource.data;
+        });
+      }, 1000);
+    }
   }
 
   applyFilter(event: any): void {
@@ -332,6 +350,25 @@ openDeleteDialog(len: number, rows: Departamento[]): void {
       this.deleteRows(rows);      
       this.listarDepartamentos();
       this.ClearSelection();
+    }
+  });
+}
+
+openViewChildDialog(len: number, rows: Departamento | Departamento[]): void {
+  const options = {
+    title: 'Visualizar Cargos?',
+    message: `Gostaria de visualizar os Cargos deste Departamento?`,
+    cancelText: 'Não',
+    confirmText: 'Sim'
+  };
+
+  // If user confirms, remove selected rows from data table
+  this.alertService.open(options);
+  this.alertService.confirmed().subscribe(confirmed => {
+    if (confirmed) {
+      const idDepartamento = Array.isArray(rows) ? rows[0].id : rows.id;
+      const idEmpresa = this.empresaSelecionada.id;
+      this.route.navigateByUrl(`empresas/${idEmpresa}/departamentos/${idDepartamento}/cargos`);
     }
   });
 }

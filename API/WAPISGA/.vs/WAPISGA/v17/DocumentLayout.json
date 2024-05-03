@@ -1,49 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\cargoinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{76A948D9-808F-4B6A-A57D-32C24CD00609}|..\\DAL\\DAL.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\dal\\cargo\\cargodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AC946BE-107C-4836-8C33-49C80AFFA625}|..\\BUS\\BUS.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\bus\\cargo\\cargobus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\sistemainfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\empresainfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\departamentoinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\controllers\\departamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:controllers\\departamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\controllers\\cargocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:controllers\\cargocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\repositories\\cargorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:repositories\\cargorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D753901F-7D5C-4955-9248-613AC943DBFD}|..\\Facade\\Facade.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\facade\\cargofacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -51,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -84,156 +42,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CargoInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\CargoInfo.cs",
-              "RelativeDocumentMoniker": "..\\Entity\\CargoInfo.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\CargoInfo.cs",
-              "RelativeToolTip": "..\\Entity\\CargoInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBAAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T23:03:43.484Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SistemaInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\SistemaInfo.cs",
-              "RelativeDocumentMoniker": "..\\Entity\\SistemaInfo.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\SistemaInfo.cs",
-              "RelativeToolTip": "..\\Entity\\SistemaInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T23:03:41.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EmpresaInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\EmpresaInfo.cs",
-              "RelativeDocumentMoniker": "..\\Entity\\EmpresaInfo.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\EmpresaInfo.cs",
-              "RelativeToolTip": "..\\Entity\\EmpresaInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T23:03:31.36Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DepartamentoInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\DepartamentoInfo.cs",
-              "RelativeDocumentMoniker": "..\\Entity\\DepartamentoInfo.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\DepartamentoInfo.cs",
-              "RelativeToolTip": "..\\Entity\\DepartamentoInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T01:03:07.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DepartamentoController.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\DepartamentoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DepartamentoController.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\DepartamentoController.cs",
-              "RelativeToolTip": "Controllers\\DepartamentoController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAA4AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T01:02:58.776Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T00:12:23.172Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EmpresaController.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\EmpresaController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EmpresaController.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\EmpresaController.cs",
-              "RelativeToolTip": "Controllers\\EmpresaController.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAqwBoAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T16:05:25.219Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CargoController.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\CargoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CargoController.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\CargoController.cs",
-              "RelativeToolTip": "Controllers\\CargoController.cs",
-              "ViewState": "AQIAAF4AAAAAAAAAAAAqwHQAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T16:44:23.716Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CargoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Repositories\\CargoRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\CargoRepository.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Repositories\\CargoRepository.cs",
-              "RelativeToolTip": "Repositories\\CargoRepository.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAjwDAAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T16:41:19.063Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CargoFacade.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Facade\\CargoFacade.cs",
-              "RelativeDocumentMoniker": "..\\Facade\\CargoFacade.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Facade\\CargoFacade.cs",
-              "RelativeToolTip": "..\\Facade\\CargoFacade.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAwwB0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T16:16:44.83Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CargoBUS.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Cargo\\CargoBUS.cs",
-              "RelativeDocumentMoniker": "..\\BUS\\Cargo\\CargoBUS.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Cargo\\CargoBUS.cs",
-              "RelativeToolTip": "..\\BUS\\Cargo\\CargoBUS.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAMwBwAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T16:13:09.147Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CargoDAL.cs",
-              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Cargo\\CargoDAL.cs",
-              "RelativeDocumentMoniker": "..\\DAL\\Cargo\\CargoDAL.cs",
-              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Cargo\\CargoDAL.cs",
-              "RelativeToolTip": "..\\DAL\\Cargo\\CargoDAL.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAowGUAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T16:06:38.975Z",
-              "EditorCaption": ""
             }
           ]
         }

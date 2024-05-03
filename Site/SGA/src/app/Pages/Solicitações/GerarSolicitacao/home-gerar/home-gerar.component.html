@@ -1,0 +1,212 @@
+<!--div class="container">
+    <h1 class="font-text-title mb-1 pt-5" id="pageTitle">Nova Solicitação de Acesso</h1>
+    <p class="mb-3">Preencha todos os dados para gerar uma nova solicitação de acesso.</p>
+
+    <div class="d-flex gap-5 me-5">
+
+        <mat-card class="col p-4 col-md-6">
+            <mat-card-header>
+                <span mat-card-avatar class="material-symbols-outlined">person_search</span>
+                <mat-card-title>Dados do Colaborador</mat-card-title>
+            </mat-card-header>
+    
+            <mat-divider></mat-divider>
+    
+            <form class="mt-4 needs-validation" (ngSubmit)="onSubmit()" [formGroup]="tableForm" novalidate role="form">
+                <mat-card-content>
+                    
+                </mat-card-content>
+                <mat-card-actions class="mt-3 align-items-center justify-content-end">
+  
+                    <button mat-raised-button class="me-5" color="primary" [disabled]="tableForm.invalid">Enviar Solicitação</button>
+              
+                    <button mat-raised-button color="primary" type="button">Cancelar</button>
+              
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    
+        <div class="col-md-6">
+            <mat-card class="p-4 col-md-12">
+                <mat-card-header>
+                    <span mat-card-avatar class="material-symbols-outlined">developer_board</span>
+                    <mat-card-title>Sistemas</mat-card-title>
+                </mat-card-header>
+        
+                <mat-divider></mat-divider>
+        
+                <form class="mt-4 needs-validation" [formGroup]="tableForm" novalidate role="form">
+                    <mat-card-content>
+                       
+                    </mat-card-content>                    
+
+                    
+
+                    
+                </form>
+            </mat-card>            
+            
+        </div>
+        
+        
+    </div>
+    
+
+</div-->
+
+<div class="container">
+    <h1 class="font-text-title mb-1 pt-5" id="pageTitle">Nova Solicitação de Acesso</h1>
+    <p class="mb-3">Preencha todos os dados para gerar uma nova solicitação de acesso.</p>
+    
+    <form class="needs-validation" (ngSubmit)="onSubmit()" [formGroup]="tableForm" novalidate>
+        <div class="d-flex gap-5 me-5">
+            <mat-card class="col p-4 col-md-6">
+                <!-- Dados do Colaborador -->
+                <mat-card-header>
+                    <span mat-card-avatar class="material-symbols-outlined">person_search</span>
+                    <mat-card-title>Dados do Colaborador</mat-card-title>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-card-content>
+                    <!-- Campos de formulário para dados do colaborador -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">    
+                                <label for="validationCustom01" class="form-label">Nome do Colaborador*</label>          
+                                <input type="text" class="form-control mat-elevation-z1" formControlName="nome" placeholder="Nome Completo" aria-label="nome" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">    
+                                <label for="validationCustom01" class="form-label">Código*</label>          
+                                <input type="text" class="form-control mat-elevation-z1"  formControlName="codigo" placeholder="Código" aria-label="nome" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="mb-3">    
+                                <label for="validationCustom01" class="form-label">Data de Inicio*</label>          
+                                <input matInput [matDatepicker]="datepicker" type="text" class="form-control mat-elevation-z1" formControlName="dataInicio"  placeholder="Data de Inicio" aria-label="nome" required>
+                            </div>
+                        </div>
+                        <div class="col-md-1 mt-4">
+                            <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker>
+                              <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancelar</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+                              </mat-datepicker-actions>
+                            </mat-datepicker>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">    
+                                <label for="validationCustom01" class="form-label">Tipo Contrato*</label>          
+                                <input type="text" class="form-control mat-elevation-z1" formControlName="tipoContrato"  placeholder="Tipo Contrato" aria-label="nome" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="mb-3">    
+                                <label for="validationCustom01" class="form-label">Centro de Custo*</label>          
+                                <input class="form-control mat-elevation-z1" formControlName="centroCusto"  placeholder="Centro de Custo" aria-label="nome" required >
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationCustom01" class="form-label">Empresa*</label>     
+                            <select class="form-select form-select input-select mat-elevation-z1" formControlName="idEmpresa" (change)="onChangeEmpresa($event)">
+                                <option value="" disabled selected>Empresa</option>
+                                <option *ngFor="let empresa of lstEmpresas.data" value="{{empresa.id}}" >
+                                    {{empresa.nome}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationCustom01" class="form-label">Departamento*</label>     
+                            <select class="form-select form-select input-select mat-elevation-z1" formControlName="idDepartamento" (change)="onChangeDepartamento($event)">
+                                <option value="" disabled selected>Departamento</option>
+                                <option *ngFor="let departamento of lstDepartamentos.data" value="{{departamento.id}}" >
+                                    {{departamento.nome}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationCustom01" class="form-label">Cargo*</label>     
+                            <select class="form-select form-select input-select mat-elevation-z1" formControlName="idCargo">
+                                <option value="" disabled selected>Cargo</option>
+                                <option *ngFor="let cargo of lstCargos.data" value="{{cargo.id}}" >
+                                    {{cargo.nome}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">                               
+                            <label for="validationCustom01" class="form-label">Superior Imediato*</label>          
+                            <input type="text" class="form-control mat-elevation-z1"  formControlName="superior" placeholder="Superior Imediato" aria-label="nome" required>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="mt-3 align-items-center justify-content-end">
+                    <button mat-raised-button class="me-5" color="primary" [disabled]="this.tableForm.invalid">Enviar Solicitação</button>
+                    <button mat-raised-button color="primary" type="button">Cancelar</button>
+                </mat-card-actions>
+            </mat-card>
+
+            <div class="col-md-6">
+                <mat-card class="p-4 col-md-12">
+                    <!-- Sistemas e outras configurações -->
+                    <mat-card-header>
+                        <span mat-card-avatar class="material-symbols-outlined">developer_board</span>
+                        <mat-card-title>Sistemas</mat-card-title>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <!-- Campos de formulário para sistemas -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div formArrayName="sistemas" class="sistemas-container">
+                                    <div *ngFor="let sistema of sistemasFormArray.controls; let i = index" [formGroupName]="i" class="sistema-checkbox">
+                                      <mat-checkbox formControlName="selected">{{ sistema.value.name }}</mat-checkbox>
+                                    </div>
+                                  </div>
+                                  
+                                  
+                            </div>
+                        </div>
+                    </mat-card-content>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="col-md-12 mt-3 mb-3">                     
+                        <label class="form-label">Acesso a Internet:</label>                    
+                        <mat-radio-group formControlName="acessoInternet">
+                            <mat-radio-button value="1">Liberado</mat-radio-button>
+                            <mat-radio-button value="2">Bloqueado</mat-radio-button>
+                          </mat-radio-group>
+                    </div>   
+
+                    <mat-divider></mat-divider>
+
+                    <div class="col-md-12 mt-3">                     
+                        <label class="form-label">Acesso ao E-mail:</label>                    
+                        <mat-radio-group formControlName="acessoEmail">
+                            <mat-radio-button value="1">Interno</mat-radio-button>
+                            <mat-radio-button value="2">Externo</mat-radio-button>
+                            <mat-radio-button value="2">N/A</mat-radio-button>
+                          </mat-radio-group>
+                    </div>  
+
+                </mat-card>            
+            </div>
+        </div>
+    </form>
+</div>

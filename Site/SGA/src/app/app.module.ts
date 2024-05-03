@@ -26,7 +26,9 @@ import { NgxViacepModule } from "@brunoc/ngx-viacep";
 import { HomeDepartamentoComponent } from './Pages/Cadastro/Departamento/home-departamento/home-departamento.component';
 import { ModalDepartamentoComponent } from './Pages/Cadastro/Departamento/modal-departamento/modal-departamento.component';
 import { HomeCargoComponent } from './Pages/Cadastro/Cargo/home-cargo/home-cargo.component';
-import { ModalCargoComponent } from './Pages/Cadastro/Cargo/modal-cargo/modal-cargo.component'; // Importando o módulo
+import { ModalCargoComponent } from './Pages/Cadastro/Cargo/modal-cargo/modal-cargo.component';
+import { HomeGerarComponent } from './Pages/Solicitações/GerarSolicitacao/home-gerar/home-gerar.component';
+import { HeaderComponent } from './Core/Components/header/header.component'; // Importando o módulo
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { ModalCargoComponent } from './Pages/Cadastro/Cargo/modal-cargo/modal-ca
     HomeDepartamentoComponent,
     ModalDepartamentoComponent,
     HomeCargoComponent,
-    ModalCargoComponent,    
+    ModalCargoComponent,
+    HomeGerarComponent,
+    HeaderComponent,    
     
   ],
   imports: [

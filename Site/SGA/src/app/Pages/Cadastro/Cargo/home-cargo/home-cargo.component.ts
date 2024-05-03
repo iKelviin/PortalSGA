@@ -9,7 +9,7 @@ import { Departamento } from '../../../../Models/Departamento';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DisplayColumn } from '../../../../Models/DisplayColumn';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AlertService } from '../../../../Shared/Services/alert.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -85,7 +85,9 @@ export class HomeCargoComponent implements OnInit {
     public dialog: MatDialog,
     private alertService: AlertService,
     private toast: HotToastService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private activatedRoute: ActivatedRoute,
     ) {}
 
     
@@ -129,9 +131,30 @@ export class HomeCargoComponent implements OnInit {
 
     // Update with columns to be displayed
     this.disColumns = this.displayedColumns.filter(cd => !cd.hide).map(cd => cd.def)
+    
+    this.listarEmpresas();        
+    
+    this.activatedRoute.params.subscribe(params => {
+      const idEmpresa = params['idEmpresa'];
+      const idDepartamento = params['idDepartamento'];    
+        if(idDepartamento !== undefined && idEmpresa !== undefined){
+          this.cboDepartamentoSelecionado = idDepartamento;
+          this.departamentoSelecionado.id = idDepartamento;
+          this.tableForm.get('idDepartamento')?.setValue(idDepartamento);
 
-    this.listarEmpresas();    
-    this.listarCargos();
+          this.cboEmpresaSelecionada = idEmpresa;
+          this.empresaSelecionada.id = idEmpresa;
+          this.tableForm.get('idEmpresa')?.setValue(idEmpresa);
+          
+        }else{
+          this.cboDepartamentoSelecionado = 'all'
+          this.cboEmpresaSelecionada = 'all'
+          
+        }
+      });     
+      
+      this.listarDepartamentos();
+      this.listarCargos();
   }
 
   LimparFiltros(){
@@ -141,6 +164,21 @@ export class HomeCargoComponent implements OnInit {
     this.tableForm.get('idDepartamento')?.setValue(0);
     this.listarCargos();
   }
+
+  listarDepartamentos(){
+    let resp = this.departamentoService.getAll().pipe(
+      catchError(error =>{
+        this.toast.error('Erro ao carregar os departamentos.');
+        return of([])
+      }));
+
+      resp.subscribe((report) => {
+        this.lstDepartamentos.data = report as Departamento[];
+        this.lstDepartamentos.data = this.lstDepartamentos.data.filter(x=> x.idEmpresa == this.empresaSelecionada.id);        
+      });
+  }
+
+
   listarEmpresas(){
     let resp = this.empresaService.getAll().pipe(
       catchError(error =>{
@@ -367,18 +405,33 @@ openDeleteDialog(len: number, rows: Cargo[]): void {
 }
 
 listarCargos(){
-  let resp = this.cargoService.getAll().pipe(
-    catchError(error =>{
-      this.toast.error('Erro ao carregar os cargos');
-      return of([])
-    }));
-  setTimeout(() => {
-    resp.subscribe((report) => {
-      this.isLoading = false;
-      this.dataSource.data = report as Cargo[];
-      this.dataSourceFiltered = this.dataSource.data;
-    });
-  }, 1000);
+  if(this.cboDepartamentoSelecionado == 'all'){
+    let resp = this.cargoService.getAll().pipe(
+      catchError(error =>{
+        this.toast.error('Erro ao carregar os cargos');
+        return of([])
+      }));
+    setTimeout(() => {
+      resp.subscribe((report) => {
+        this.isLoading = false;
+        this.dataSource.data = report as Cargo[];
+        this.dataSourceFiltered = this.dataSource.data;
+      });
+    }, 1000);
+  }else{
+    let resp = this.cargoService.getAllByDepartamento(this.departamentoSelecionado.id).pipe(
+      catchError(error =>{
+        this.toast.error('Erro ao carregar os cargos');
+        return of([])
+      }));
+    setTimeout(() => {
+      resp.subscribe((report) => {
+        this.isLoading = false;
+        this.dataSource.data = report as Cargo[];
+        this.dataSourceFiltered = this.dataSource.data;
+      });
+    }, 1000);
+  }
 }
 
 

@@ -80,7 +80,8 @@ export class ModalCargoComponent implements OnInit{
       }));
 
       resp.subscribe((report) => {
-        this.lstDepartamentos.data = report as Departamento[];      
+        this.lstDepartamentos.data = report as Departamento[];     
+        this.lstDepartamentos.data = this.lstDepartamentos.data.filter(x=> x.idEmpresa == this.local_data.idEmpresa);
       });
   }
 
@@ -98,7 +99,6 @@ export class ModalCargoComponent implements OnInit{
 
   onSubmit(): void {
     const formData = this.tableForm.value;
-    console.log('formData:',formData);
 
     if(this.local_data.id == null){
       formData.id = 0;

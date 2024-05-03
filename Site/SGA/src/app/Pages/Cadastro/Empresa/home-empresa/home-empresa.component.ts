@@ -14,6 +14,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ModalEmpresaComponent } from '../modal-empresa/modal-empresa.component';
 import { MatRadioChange } from '@angular/material/radio';
 import * as XLSX from 'xlsx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-empresa',
@@ -82,7 +83,8 @@ export class HomeEmpresaComponent implements OnInit{
     private empresaService: EmpresaService,
     public dialog: MatDialog,
     private alertService: AlertService,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private route: Router
     ) {}
 
   ngOnInit(): void {
@@ -281,6 +283,24 @@ deleteRow(row: Empresa): void {
       }
     });
   }
+}
+
+openViewChildDialog(len: number, rows: Empresa | Empresa[]): void {
+  const options = {
+    title: 'Visualizar Departamentos?',
+    message: `Gostaria de visualizar os Departamentos desta Empresa?`,
+    cancelText: 'Não',
+    confirmText: 'Sim'
+  };
+
+  // If user confirms, remove selected rows from data table
+  this.alertService.open(options);
+  this.alertService.confirmed().subscribe(confirmed => {
+    if (confirmed) {
+      const idApi = Array.isArray(rows) ? rows[0].id : rows.id;
+      this.route.navigateByUrl(`departamentos/${idApi}`);
+    }
+  });
 }
 
 openDisableDialog(len: number, rows: Empresa[]): void {

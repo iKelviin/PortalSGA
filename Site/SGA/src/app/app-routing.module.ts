@@ -4,6 +4,7 @@ import { LayoutComponent } from './Core/Pages/layout/layout.component';
 import { HomeEmpresaComponent } from './Pages/Cadastro/Empresa/home-empresa/home-empresa.component';
 import { HomeDepartamentoComponent } from './Pages/Cadastro/Departamento/home-departamento/home-departamento.component';
 import { HomeCargoComponent } from './Pages/Cadastro/Cargo/home-cargo/home-cargo.component';
+import { HomeGerarComponent } from './Pages/Solicitações/GerarSolicitacao/home-gerar/home-gerar.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,20 @@ const routes: Routes = [
         component: HomeDepartamentoComponent
       },
       {
+        path:'departamentos/:idEmpresa',
+        component: HomeDepartamentoComponent
+      },
+      {
         path:'cargos',
         component: HomeCargoComponent
+      },
+      {
+        path:'empresas/:idEmpresa/departamentos/:idDepartamento/cargos',
+        component: HomeCargoComponent
+      },
+      {
+        path:'gerar',
+        component: HomeGerarComponent
       }
   ]
   }

@@ -1,0 +1,13 @@
+.demo-inline-calendar-card {
+    width: 300px;
+  }
+  
+  .sistemas-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .sistema-checkbox {
+    flex: 1 0 50%; /* Isso garante que cada checkbox ocupe metade da largura do container */
+  }
+  

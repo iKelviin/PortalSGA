@@ -14,7 +14,7 @@ export const sidebarData: ISidebarData[] = [
       //sublevel: 0,
       items: [
         {
-          routeLink: 'Geracao',
+          routeLink: 'gerar',
           icon: 'fiber_manual_record',
           label: 'Gerar Solicitação',
           //sublevel: 1,
@@ -48,7 +48,7 @@ export const sidebarData: ISidebarData[] = [
     {
         routeLink: 'Cadastros',
         icon: 'settings',
-        label: 'Cadastro',
+        label: 'Cadastros',
         items: [
             {
               routeLink: 'empresas',
@@ -68,12 +68,12 @@ export const sidebarData: ISidebarData[] = [
               label: 'Cadastro de Cargos',
               //sublevel: 1
             },            
-            {
-              routeLink: 'usuarios',
-              icon: 'fiber_manual_record',
-              label: 'Gestão de Usuários',
-              //sublevel: 1
-            }
+            
         ]
+    },
+    {
+      routeLink: 'usuarios',
+      icon: 'manage_accounts',
+      label: 'Gestão de Usuários',
     }
 ];
