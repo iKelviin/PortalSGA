@@ -13,7 +13,7 @@
             <summary>
             Grava dados de um novo cargo ou atualiza um ja existente.
             </summary>
-            <param name="pIdDepartamento">Id do departamento.</param>
+            <param name="id">Id do departamento.</param>
             <param name="pCargo">Dados do cargo.</param>
             <returns>Resultado da operacao de gravacao.</returns>
         </member>
@@ -27,28 +27,28 @@
             <summary>
             Retorna uma lista de cargos cadastrados para um determinad departamento.
             </summary>
-            <param name="pIdDepartamento">Id do departamento.</param>
+            <param name="id">Id do departamento.</param>
             <returns>Lista de cargos por departamento.</returns>
         </member>
         <member name="M:WAPISGA.Controllers.CargoController.SelecionarListaPorNome(System.String)">
             <summary>
             Retorna uma lista de cargos cadastrados filtrando pelo nome.
             </summary>
-            <param name="pNome">Nome do cargo.</param>
+            <param name="nome">Nome do cargo.</param>
             <returns>Lista de cargos filtrados pelo nome.</returns>
         </member>
         <member name="M:WAPISGA.Controllers.CargoController.Selecionar(System.Int32)">
             <summary>
             Retorna um cargo de acordo com o ID informado.
             </summary>
-            <param name="pId">ID do cargo.</param>
+            <param name="id">ID do cargo.</param>
             <returns>Dados do cargo.</returns>
         </member>
         <member name="M:WAPISGA.Controllers.CargoController.Excluir(System.Int32)">
             <summary>
             Exclui um cargo existente.
             </summary>
-            <param name="pId">Id do cargo.</param>
+            <param name="id">Id do cargo.</param>
             <returns>Resultado da operacao de exclusão.</returns>
         </member>
         <member name="T:WAPISGA.Controllers.DepartamentoController">
@@ -60,7 +60,7 @@
             <summary>
             Grava dados de um nov departamento ou atualiza um ja existente.
             </summary>
-            <param name="pIdEmpresa">Id da empresa.</param>
+            <param name="id">Id da empresa.</param>
             <param name="pDepartamento">Dados do departamento.</param>
             <returns>Resultado da operacao de gravacao.</returns>
         </member>
@@ -74,28 +74,28 @@
             <summary>
             Retorna uma lista de departamentos cadastrados para uma determinada empresa.
             </summary>
-            <param name="pIdEmpresa">Id da empresa.</param>
+            <param name="id">Id da empresa.</param>
             <returns>Lista de departamentos por empresa.</returns>
         </member>
         <member name="M:WAPISGA.Controllers.DepartamentoController.SelecionarListaPorNome(System.String)">
             <summary>
             Retorna uma lista de departamentos cadastrados filtrando pelo nome.
             </summary>
-            <param name="pNome">Nome do departamento.</param>
+            <param name="nome">Nome do departamento.</param>
             <returns>Lista de departamentos filtrados pelo nome.</returns>
         </member>
         <member name="M:WAPISGA.Controllers.DepartamentoController.Selecionar(System.Int32)">
             <summary>
             Retorna um departamento de acordo com o ID informado.
             </summary>
-            <param name="pId">ID do departamento.</param>
+            <param name="id">ID do departamento.</param>
             <returns>Dados do departamento.</returns>
         </member>
         <member name="M:WAPISGA.Controllers.DepartamentoController.Excluir(System.Int32)">
             <summary>
             Exclui um departamento existente.
             </summary>
-            <param name="pId">Id do departamento.</param>
+            <param name="id">Id do departamento.</param>
             <returns>Resultado da operacao de exclusão.</returns>
         </member>
         <member name="T:WAPISGA.Controllers.EmpresaController">
@@ -127,14 +127,14 @@
             <summary>
             Retorna uma empresa de acordo com o ID informado.
             </summary>
-            <param name="pId">ID da empresa.</param>
+            <param name="id">ID da empresa.</param>
             <returns>Dados da empresa.</returns>
         </member>
         <member name="M:WAPISGA.Controllers.EmpresaController.Excluir(System.Int32)">
             <summary>
             Exclui uma empresa existente.
             </summary>
-            <param name="pId">Id da empresa.</param>
+            <param name="id">Id da empresa.</param>
             <returns>Resultado da operacao de exclusão.</returns>
         </member>
         <member name="T:WAPISGA.Controllers.SolicitacaoController">
@@ -147,6 +147,20 @@
             Retorna uma lista de Solicitações cadastradas.
             </summary>
             <returns>Lista de Solicitações.</returns>]
+        </member>
+        <member name="M:WAPISGA.Controllers.SolicitacaoController.Selecionar(System.Int32)">
+            <summary>
+            Retorna uma Solicitação pelo Id.
+            </summary>
+            <param name="id">Id da Solicitação.</param>
+            <returns>Dados da Solicitação.</returns>
+        </member>
+        <member name="M:WAPISGA.Controllers.SolicitacaoController.Gravar(Entity.Solicitacao.SolicitacaoDTOInfo)">
+            <summary>
+            Grava dados de uma nova solicitação ou atualiza uma ja existente.
+            </summary>
+            <param name="pSolicitacao">Dados da Solicitação.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
         </member>
         <member name="T:WAPISGA.Repositories.CargoRepository">
             <summary>
@@ -286,6 +300,20 @@
             Retorna uma lista de Solicitações cadastradas.
             </summary>
             <returns>Lista de Solicitações.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.SolicitacaoRepository.Selecionar(System.Int32)">
+            <summary>
+            Retorna uma Solicitação pelo Id.
+            </summary>
+            <param name="id">Id da Solicitação.</param>
+            <returns>Dados da Solicitação.</returns>
+        </member>
+        <member name="M:WAPISGA.Repositories.SolicitacaoRepository.Gravar(Entity.Solicitacao.SolicitacaoDTOInfo)">
+            <summary>
+            Grava dados de uma nova solicitação ou atualiza uma ja existente.
+            </summary>
+            <param name="pSolicitacao">Dados da Solicitação.</param>
+            <returns>Resultado da operacao de gravacao.</returns>
         </member>
     </members>
 </doc>

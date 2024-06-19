@@ -1,4 +1,6 @@
-﻿using Entity.Solicitacao;
+﻿using Entity.Common;
+using Entity;
+using Entity.Solicitacao;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -24,9 +26,53 @@ namespace WAPISGA.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("api/solicitacoes")]
-        public List<SolicitacaoInfo> SelecionarLista()
+        public List<SolicitacaoDTOInfo> SelecionarLista()
         {
             return repSolic.SelecionarLista();
+        }
+
+        /// <summary>
+        /// Retorna uma Solicitação pelo Id.
+        /// </summary>
+        /// <param name="id">Id da Solicitação.</param>
+        /// <returns>Dados da Solicitação.</returns>
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("api/solicitacoes/{id}")]
+        public SolicitacaoDTOInfo Selecionar(int id)
+        {
+            return repSolic.Selecionar(id);
+        }
+
+        /// <summary>
+        /// Grava dados de uma nova solicitação ou atualiza uma ja existente.
+        /// </summary>
+        /// <param name="pSolicitacao">Dados da Solicitação.</param>
+        /// <returns>Resultado da operacao de gravacao.</returns>
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("api/solicitacoes")]
+        public IActionResult Gravar([FromBody] SolicitacaoDTOInfo pSolicitacao)
+        {
+            RetornoPostInfo resultado = new RetornoPostInfo();
+            try
+            {
+                resultado = repSolic.Gravar(pSolicitacao);
+
+                if (resultado.Mensagem.Contains("Erro"))
+                {
+                    return BadRequest(resultado);
+                }
+                else
+                {
+                    return new OkObjectResult(resultado);
+                }
+            }
+            catch (Exception ex)
+            {
+                resultado.Mensagem = string.Concat("Erro ao salvar dados da solicitação: ", ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, resultado);
+            }
         }
     }
 }

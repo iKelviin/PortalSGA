@@ -10,15 +10,15 @@ using static Common.Enumeracoes;
 
 namespace DAL.Solicitacao
 {
-    public class SolicitacaoDAL : BaseDAL<SolicitacaoInfo>
+    public class SolicitacaoDAL : BaseDAL<SolicitacaoDTOInfo>
     {
         public SolicitacaoDAL(Banco banco) : base(banco) { }
 
-        public override void Excluir(SolicitacaoInfo voT)
+        public override void Excluir(SolicitacaoDTOInfo voT)
         {
             throw new NotImplementedException();
         }
-        public void Cancelar(SolicitacaoInfo solicitacao)
+        public void Cancelar(SolicitacaoDTOInfo solicitacao)
         {
             try
             {
@@ -37,13 +37,13 @@ namespace DAL.Solicitacao
             }
         }
 
-        public override int Gravar(SolicitacaoInfo solicitacao)
+        public override int Gravar(SolicitacaoDTOInfo solicitacao)
         {
             try
             {
                 using (Connection)
                 {
-                    return Convert.ToInt32(ExecuteScalar<SolicitacaoInfo>("usp_InserirSolicitacao", solicitacao));
+                    return Convert.ToInt32(ExecuteScalar<SolicitacaoDTOInfo>("usp_InserirSolicitacao", solicitacao));
                 }
             }
             catch (Exception ex)
@@ -53,12 +53,12 @@ namespace DAL.Solicitacao
             }
         }
 
-        public override SolicitacaoInfo Selecionar(int id)
+        public override SolicitacaoDTOInfo Selecionar(int id)
         {
             try
             {
                 DataTable dt;
-                SolicitacaoInfo obj = new SolicitacaoInfo();
+                SolicitacaoDTOInfo obj = new SolicitacaoDTOInfo();
                 using (Connection)
                 {
                     Parameters = new SqlParameter[1];
@@ -68,7 +68,7 @@ namespace DAL.Solicitacao
 
                 if (dt.Rows.Count > 0)
                 {
-                    obj = PegaItem<SolicitacaoInfo>(dt.Rows[0]);
+                    obj = PegaItem<SolicitacaoDTOInfo>(dt.Rows[0]);
                 }
                 return obj;
             }
@@ -79,9 +79,9 @@ namespace DAL.Solicitacao
             }
         }
 
-        public override List<SolicitacaoInfo> SelecionarLista()
+        public override List<SolicitacaoDTOInfo> SelecionarLista()
         {
-            List<SolicitacaoInfo> lst = new List<SolicitacaoInfo>();
+            List<SolicitacaoDTOInfo> lst = new List<SolicitacaoDTOInfo>();
             try
             {
                 DataTable dt;
@@ -92,7 +92,7 @@ namespace DAL.Solicitacao
                 }
                 if (dt.Rows.Count > 0)
                 {
-                    lst = ConverteParaLista<SolicitacaoInfo>(dt);
+                    lst = ConverteParaLista<SolicitacaoDTOInfo>(dt);
                 }
             }
             catch (Exception ex)
@@ -101,6 +101,6 @@ namespace DAL.Solicitacao
             }
 
             return lst;
-        }
+        }        
     }
 }

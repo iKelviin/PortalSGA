@@ -22,18 +22,18 @@ namespace WAPISGA.Controllers
         /// <summary>
         /// Grava dados de um novo cargo ou atualiza um ja existente.
         /// </summary>
-        /// <param name="pIdDepartamento">Id do departamento.</param>
+        /// <param name="id">Id do departamento.</param>
         /// <param name="pCargo">Dados do cargo.</param>
         /// <returns>Resultado da operacao de gravacao.</returns>
         [AllowAnonymous]
         [HttpPost]
-        [Route("api/empresas/departamentos/{pIdDepartamento}/cargos")]
-        public IActionResult Gravar(int pIdDepartamento, [FromBody] CargoInfo pCargo)
+        [Route("api/empresas/departamentos/{id}/cargos")]
+        public IActionResult Gravar(int id, [FromBody] CargoInfo pCargo)
         {
             RetornoPostInfo resultado = new RetornoPostInfo();
             try
             {
-                resultado = repCargo.Gravar(pIdDepartamento, pCargo);
+                resultado = repCargo.Gravar(id, pCargo);
 
                 if (resultado.Mensagem.Contains("Erro"))
                 {
@@ -66,57 +66,57 @@ namespace WAPISGA.Controllers
         /// <summary>
         /// Retorna uma lista de cargos cadastrados para um determinad departamento.
         /// </summary>
-        /// <param name="pIdDepartamento">Id do departamento.</param>
+        /// <param name="id">Id do departamento.</param>
         /// <returns>Lista de cargos por departamento.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/departamentos/{pIdDepartamento}/cargos")]
-        public List<CargoInfo> SelecionarListaPorDepartamento(int pIdDepartamento)
+        [Route("api/empresas/departamentos/{id}/cargos")]
+        public List<CargoInfo> SelecionarListaPorDepartamento(int id)
         {
-            return repCargo.SelecionarLista(pIdDepartamento);
+            return repCargo.SelecionarLista(id);
         }
 
         /// <summary>
         /// Retorna uma lista de cargos cadastrados filtrando pelo nome.
         /// </summary>
-        /// <param name="pNome">Nome do cargo.</param>
+        /// <param name="nome">Nome do cargo.</param>
         /// <returns>Lista de cargos filtrados pelo nome.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/departamentos/cargos/por-nome/{pNome}")]
-        public List<CargoInfo> SelecionarListaPorNome(string pNome)
+        [Route("api/empresas/departamentos/cargos/por-nome/{nome}")]
+        public List<CargoInfo> SelecionarListaPorNome(string nome)
         {
-            return repCargo.SelecionarListaPorNome(pNome);
+            return repCargo.SelecionarListaPorNome(nome);
         }
 
         /// <summary>
         /// Retorna um cargo de acordo com o ID informado.
         /// </summary>
-        /// <param name="pId">ID do cargo.</param>
+        /// <param name="id">ID do cargo.</param>
         /// <returns>Dados do cargo.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/departamentos/cargos/{pId}")]
-        public CargoInfo Selecionar(int pId)
+        [Route("api/empresas/departamentos/cargos/{id}")]
+        public CargoInfo Selecionar(int id)
         {
-            return repCargo.Selecionar(pId);
+            return repCargo.Selecionar(id);
         }
 
 
         /// <summary>
         /// Exclui um cargo existente.
         /// </summary>
-        /// <param name="pId">Id do cargo.</param>
+        /// <param name="id">Id do cargo.</param>
         /// <returns>Resultado da operacao de exclusão.</returns>
         [AllowAnonymous]
         [HttpDelete]
-        [Route("api/empresas/departamentos/cargos/{pId}")]
-        public IActionResult Excluir(int pId)
+        [Route("api/empresas/departamentos/cargos/{id}")]
+        public IActionResult Excluir(int id)
         {
             RetornoPostInfo resultado = new RetornoPostInfo();
             try
             {
-                resultado = repCargo.Excluir(pId);
+                resultado = repCargo.Excluir(id);
 
                 if (resultado.Mensagem.Contains("Erro"))
                 {

@@ -10,8 +10,8 @@ namespace Entity
     {
         public int Codigo { get; set; }
         public string NomeCompleto { get; set; }
-        public string Empresa { get; set; }
-        public string Cargo { get; set; }
+        public int IdEmpresa { get; set; }
+        public int IdCargo { get; set; }
         public string Superior { get; set; }
         public string TipoContrato { get; set; }
         public int CentroCusto { get; set; }

@@ -22,18 +22,18 @@ namespace WAPISGA.Controllers
         /// <summary>
         /// Grava dados de um nov departamento ou atualiza um ja existente.
         /// </summary>
-        /// <param name="pIdEmpresa">Id da empresa.</param>
+        /// <param name="id">Id da empresa.</param>
         /// <param name="pDepartamento">Dados do departamento.</param>
         /// <returns>Resultado da operacao de gravacao.</returns>
         [AllowAnonymous]
         [HttpPost]
-        [Route("api/empresas/{pIdEmpresa}/departamentos")]
-        public IActionResult Gravar(int pIdEmpresa, [FromBody] DepartamentoInfo pDepartamento)
+        [Route("api/empresas/{id}/departamentos")]
+        public IActionResult Gravar(int id, [FromBody] DepartamentoInfo pDepartamento)
         {
             RetornoPostInfo resultado = new RetornoPostInfo();
             try
             {
-                resultado = repDepartamento.Gravar(pIdEmpresa,pDepartamento);
+                resultado = repDepartamento.Gravar(id,pDepartamento);
 
                 if (resultado.Mensagem.Contains("Erro"))
                 {
@@ -66,57 +66,57 @@ namespace WAPISGA.Controllers
         /// <summary>
         /// Retorna uma lista de departamentos cadastrados para uma determinada empresa.
         /// </summary>
-        /// <param name="pIdEmpresa">Id da empresa.</param>
+        /// <param name="id">Id da empresa.</param>
         /// <returns>Lista de departamentos por empresa.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/{pIdEmpresa}/departamentos")]
-        public List<DepartamentoInfo> SelecionarListaPorEmpresa(int pIdEmpresa)
+        [Route("api/empresas/{id}/departamentos")]
+        public List<DepartamentoInfo> SelecionarListaPorEmpresa(int id)
         {
-            return repDepartamento.SelecionarLista(pIdEmpresa);
+            return repDepartamento.SelecionarLista(id);
         }
 
         /// <summary>
         /// Retorna uma lista de departamentos cadastrados filtrando pelo nome.
         /// </summary>
-        /// <param name="pNome">Nome do departamento.</param>
+        /// <param name="nome">Nome do departamento.</param>
         /// <returns>Lista de departamentos filtrados pelo nome.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/departamentos/por-nome/{pNome}")]
-        public List<DepartamentoInfo> SelecionarListaPorNome(string pNome)
+        [Route("api/empresas/departamentos/por-nome/{nome}")]
+        public List<DepartamentoInfo> SelecionarListaPorNome(string nome)
         {
-            return repDepartamento.SelecionarListaPorNome(pNome);
+            return repDepartamento.SelecionarListaPorNome(nome);
         }
 
         /// <summary>
         /// Retorna um departamento de acordo com o ID informado.
         /// </summary>
-        /// <param name="pId">ID do departamento.</param>
+        /// <param name="id">ID do departamento.</param>
         /// <returns>Dados do departamento.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/departamentos/{pId}")]
-        public DepartamentoInfo Selecionar(int pId)
+        [Route("api/empresas/departamentos/{id}")]
+        public DepartamentoInfo Selecionar(int id)
         {
-            return repDepartamento.Selecionar(pId);
+            return repDepartamento.Selecionar(id);
         }
 
 
         /// <summary>
         /// Exclui um departamento existente.
         /// </summary>
-        /// <param name="pId">Id do departamento.</param>
+        /// <param name="id">Id do departamento.</param>
         /// <returns>Resultado da operacao de exclusão.</returns>
         [AllowAnonymous]
         [HttpDelete]
-        [Route("api/empresas/departamentos/{pId}")]
-        public IActionResult Excluir(int pId)
+        [Route("api/empresas/departamentos/{id}")]
+        public IActionResult Excluir(int id)
         {
             RetornoPostInfo resultado = new RetornoPostInfo();
             try
             {
-                resultado = repDepartamento.Excluir(pId);
+                resultado = repDepartamento.Excluir(id);
 
                 if (resultado.Mensagem.Contains("Erro"))
                 {

@@ -1,4 +1,4 @@
-CREATE PROCEDURE usp_ObterDepartamentos
+CREATE OR ALTER PROCEDURE usp_ObterDepartamentos
 (
 	@Id INT = 0	
 )
@@ -7,27 +7,27 @@ BEGIN
 	IF(@Id = 0)
 		BEGIN
 			SELECT 
-				tbl_Departamento.Id,
-				tbl_Departamento.CentroCusto,
-				tbl_Departamento.Nome,
-				tbl_Departamento.IdEmpresa,
-				tbl_Empresa.Nome as NomeEmpresa
+				tbl_Departamentos.Id,
+				tbl_Departamentos.CentroCusto,
+				tbl_Departamentos.Nome,
+				tbl_Departamentos.IdEmpresa,
+				tbl_Empresas.Nome as NomeEmpresa
 			FROM 
-				tbl_Departamento 
-				INNER JOIN tbl_Empresa on tbl_Empresa.Id = tbl_Departamento.IdEmpresa
+				tbl_Departamentos 
+				INNER JOIN tbl_Empresas on tbl_Empresas.Id = tbl_Departamentos.IdEmpresa
 		END
 	ELSE 
 		BEGIN
 			SELECT 
-				tbl_Departamento.Id,
-				tbl_Departamento.CentroCusto,
-				tbl_Departamento.Nome,
-				tbl_Departamento.IdEmpresa,
-				tbl_Empresa.Nome as NomeEmpresa
+				tbl_Departamentos.Id,
+				tbl_Departamentos.CentroCusto,
+				tbl_Departamentos.Nome,
+				tbl_Departamentos.IdEmpresa,
+				tbl_Empresas.Nome as NomeEmpresa
 			FROM 
-				tbl_Departamento 
-				INNER JOIN tbl_Empresa on tbl_Empresa.Id = tbl_Departamento.IdEmpresa
+				tbl_Departamentos 
+				INNER JOIN tbl_Empresas on tbl_Empresas.Id = tbl_Departamentos.IdEmpresa
 			WHERE
-				tbl_Departamento.Id = @Id
+				tbl_Departamentos.Id = @Id
 		END
 END

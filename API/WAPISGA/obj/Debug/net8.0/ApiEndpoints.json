@@ -38,13 +38,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.EmpresaController",
     "Method": "Selecionar",
-    "RelativePath": "api/empresas/{pId}",
+    "RelativePath": "api/empresas/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pId",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -64,13 +64,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.EmpresaController",
     "Method": "Excluir",
-    "RelativePath": "api/empresas/{pId}",
+    "RelativePath": "api/empresas/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pId",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -80,13 +80,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.DepartamentoController",
     "Method": "Gravar",
-    "RelativePath": "api/empresas/{pIdEmpresa}/departamentos",
+    "RelativePath": "api/empresas/{id}/departamentos",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pIdEmpresa",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       },
@@ -101,13 +101,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.DepartamentoController",
     "Method": "SelecionarListaPorEmpresa",
-    "RelativePath": "api/empresas/{pIdEmpresa}/departamentos",
+    "RelativePath": "api/empresas/{id}/departamentos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pIdEmpresa",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -147,13 +147,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.DepartamentoController",
     "Method": "Selecionar",
-    "RelativePath": "api/empresas/departamentos/{pId}",
+    "RelativePath": "api/empresas/departamentos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pId",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -173,13 +173,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.DepartamentoController",
     "Method": "Excluir",
-    "RelativePath": "api/empresas/departamentos/{pId}",
+    "RelativePath": "api/empresas/departamentos/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pId",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -189,13 +189,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.CargoController",
     "Method": "Gravar",
-    "RelativePath": "api/empresas/departamentos/{pIdDepartamento}/cargos",
+    "RelativePath": "api/empresas/departamentos/{id}/cargos",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pIdDepartamento",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       },
@@ -210,13 +210,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.CargoController",
     "Method": "SelecionarListaPorDepartamento",
-    "RelativePath": "api/empresas/departamentos/{pIdDepartamento}/cargos",
+    "RelativePath": "api/empresas/departamentos/{id}/cargos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pIdDepartamento",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -256,13 +256,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.CargoController",
     "Method": "Selecionar",
-    "RelativePath": "api/empresas/departamentos/cargos/{pId}",
+    "RelativePath": "api/empresas/departamentos/cargos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pId",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -282,13 +282,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.CargoController",
     "Method": "Excluir",
-    "RelativePath": "api/empresas/departamentos/cargos/{pId}",
+    "RelativePath": "api/empresas/departamentos/cargos/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pId",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -298,13 +298,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.CargoController",
     "Method": "SelecionarListaPorNome",
-    "RelativePath": "api/empresas/departamentos/cargos/por-nome/{pNome}",
+    "RelativePath": "api/empresas/departamentos/cargos/por-nome/{nome}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pNome",
+        "Name": "nome",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -324,13 +324,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.DepartamentoController",
     "Method": "SelecionarListaPorNome",
-    "RelativePath": "api/empresas/departamentos/por-nome/{pNome}",
+    "RelativePath": "api/empresas/departamentos/por-nome/{nome}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pNome",
+        "Name": "nome",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -350,13 +350,13 @@
   {
     "ContainingType": "WAPISGA.Controllers.EmpresaController",
     "Method": "SelecionarListaPorNome",
-    "RelativePath": "api/empresas/por-nome/{pNome}",
+    "RelativePath": "api/empresas/por-nome/{nome}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pNome",
+        "Name": "nome",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -383,7 +383,49 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Entity.Solicitacao.SolicitacaoInfo, Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Entity.Solicitacao.SolicitacaoDTOInfo, Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WAPISGA.Controllers.SolicitacaoController",
+    "Method": "Gravar",
+    "RelativePath": "api/solicitacoes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pSolicitacao",
+        "Type": "Entity.Solicitacao.SolicitacaoDTOInfo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WAPISGA.Controllers.SolicitacaoController",
+    "Method": "Selecionar",
+    "RelativePath": "api/solicitacoes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Entity.Solicitacao.SolicitacaoDTOInfo",
         "MediaTypes": [
           "text/plain",
           "application/json",

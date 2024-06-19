@@ -1,4 +1,4 @@
-CREATE PROCEDURE usp_ObterEmpresasPorNome
+CREATE OR ALTER PROCEDURE usp_ObterEmpresasPorNome
 (
 	@Nome varchar(100)
 )
@@ -18,7 +18,7 @@ BEGIN
 		Estado,
 		Ativo
 	FROM 
-		tbl_Empresa 
+		tbl_Empresas
 	WHERE 
 		Nome LIKE '%' + @Nome + '%'
 END

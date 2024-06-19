@@ -1,4 +1,4 @@
-create TABLE tbl_Empresa(
+create TABLE tbl_Empresas(
 	Id INT IDENTITY Primary Key NOT NULL,
 	Nome varchar(100) NOT NULL,
 	Email VARCHAR(100) NOT NULL,
@@ -12,5 +12,4 @@ create TABLE tbl_Empresa(
 	Estado VARCHAR(20) NOT NULL,
 	Ativo BIT NOT NULL
 ) 
-
 

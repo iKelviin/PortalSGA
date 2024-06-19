@@ -67,40 +67,40 @@ namespace WAPISGA.Controllers
         /// <returns>Lista de empresas filtrada pelo nome.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/por-nome/{pNome}")]
-        public List<EmpresaInfo> SelecionarListaPorNome(string pNome)
+        [Route("api/empresas/por-nome/{nome}")]
+        public List<EmpresaInfo> SelecionarListaPorNome(string nome)
         {
-            return repEmpresa.SelecionarListaPorNome(pNome);
+            return repEmpresa.SelecionarListaPorNome(nome);
         }
 
         /// <summary>
         /// Retorna uma empresa de acordo com o ID informado.
         /// </summary>
-        /// <param name="pId">ID da empresa.</param>
+        /// <param name="id">ID da empresa.</param>
         /// <returns>Dados da empresa.</returns>
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/empresas/{pId}")]
-        public EmpresaInfo Selecionar(int pId)
+        [Route("api/empresas/{id}")]
+        public EmpresaInfo Selecionar(int id)
         {
-            return repEmpresa.Selecionar(pId);
+            return repEmpresa.Selecionar(id);
         }
 
 
         /// <summary>
         /// Exclui uma empresa existente.
         /// </summary>
-        /// <param name="pId">Id da empresa.</param>
+        /// <param name="id">Id da empresa.</param>
         /// <returns>Resultado da operacao de exclusão.</returns>
         [AllowAnonymous]
         [HttpDelete]
-        [Route("api/empresas/{pId}")]
-        public IActionResult Excluir(int pId)
+        [Route("api/empresas/{id}")]
+        public IActionResult Excluir(int id)
         {
             RetornoPostInfo resultado = new RetornoPostInfo();
             try
             {
-                resultado = repEmpresa.Excluir(pId);
+                resultado = repEmpresa.Excluir(id);
 
                 if (resultado.Mensagem.Contains("Erro"))
                 {

@@ -1,4 +1,4 @@
-CREATE PROCEDURE usp_GravarEmpresa
+CREATE OR ALTER PROCEDURE usp_GravarEmpresa
 (
 	@Id INT = 0,
 	@Nome varchar(100),
@@ -15,9 +15,9 @@ CREATE PROCEDURE usp_GravarEmpresa
 )
 AS
 BEGIN
-	IF EXISTS( SELECT 1 FROM tbl_Empresa where Id = @Id)
+	IF EXISTS( SELECT 1 FROM tbl_Empresas where Id = @Id)
 	BEGIN
-		UPDATE tbl_Empresa
+		UPDATE tbl_Empresas
 		SET			
 			Nome = @Nome,
 			Email = @Email,
@@ -36,7 +36,7 @@ BEGIN
 	END
 	ELSE
 	BEGIN
-		INSERT INTO tbl_Empresa 
+		INSERT INTO tbl_Empresas 
 		(
 			Nome,
 			Email,

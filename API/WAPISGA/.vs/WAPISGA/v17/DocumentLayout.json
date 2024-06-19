@@ -1,7 +1,39 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8AC946BE-107C-4836-8C33-49C80AFFA625}|..\\BUS\\BUS.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\bus\\solicitacao\\solicitacaobus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\wapisga\\controllers\\solicitacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0D6BAF9-C60B-4762-BD65-AC66933D414A}|WAPISGA.csproj|solutionrelative:controllers\\solicitacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\solicitacao\\solicitacaodtoinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\sistemainfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\acessosistema\\acessosistemainfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76A948D9-808F-4B6A-A57D-32C24CD00609}|..\\DAL\\DAL.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\dal\\acessosistema\\acessosistemadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76A948D9-808F-4B6A-A57D-32C24CD00609}|..\\DAL\\DAL.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\dal\\colaborador\\colaboradordal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76A948D9-808F-4B6A-A57D-32C24CD00609}|..\\DAL\\DAL.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\dal\\departamento\\departamentodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\colaboradorinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{973A3CB8-53C3-4D6C-9703-6E717B40A41A}|..\\Entity\\Entity.csproj|c:\\users\\kelvin\\documents\\github\\portalsga\\api\\entity\\acessoinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +41,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,6 +74,136 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DepartamentoDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Departamento\\DepartamentoDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Departamento\\DepartamentoDAL.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Departamento\\DepartamentoDAL.cs",
+              "RelativeToolTip": "..\\DAL\\Departamento\\DepartamentoDAL.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAgwEEAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T07:30:04.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SistemaInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\SistemaInfo.cs",
+              "RelativeDocumentMoniker": "..\\Entity\\SistemaInfo.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\SistemaInfo.cs",
+              "RelativeToolTip": "..\\Entity\\SistemaInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T07:15:50.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AcessoSistemaInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\AcessoSistema\\AcessoSistemaInfo.cs",
+              "RelativeDocumentMoniker": "..\\Entity\\AcessoSistema\\AcessoSistemaInfo.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\AcessoSistema\\AcessoSistemaInfo.cs",
+              "RelativeToolTip": "..\\Entity\\AcessoSistema\\AcessoSistemaInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T07:13:02.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AcessoInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\AcessoInfo.cs",
+              "RelativeDocumentMoniker": "..\\Entity\\AcessoInfo.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\AcessoInfo.cs",
+              "RelativeToolTip": "..\\Entity\\AcessoInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T07:07:38.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AcessoSistemaDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\AcessoSistema\\AcessoSistemaDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\AcessoSistema\\AcessoSistemaDAL.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\AcessoSistema\\AcessoSistemaDAL.cs",
+              "RelativeToolTip": "..\\DAL\\AcessoSistema\\AcessoSistemaDAL.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowC8AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T07:05:43.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ColaboradorDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Colaborador\\ColaboradorDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Colaborador\\ColaboradorDAL.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\DAL\\Colaborador\\ColaboradorDAL.cs",
+              "RelativeToolTip": "..\\DAL\\Colaborador\\ColaboradorDAL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T06:51:39.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SolicitacaoBUS.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "RelativeDocumentMoniker": "..\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "RelativeToolTip": "..\\BUS\\Solicitacao\\SolicitacaoBUS.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBEAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T06:50:38.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ColaboradorInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\ColaboradorInfo.cs",
+              "RelativeDocumentMoniker": "..\\Entity\\ColaboradorInfo.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\ColaboradorInfo.cs",
+              "RelativeToolTip": "..\\Entity\\ColaboradorInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T06:27:37.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SolicitacaoDTOInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\Solicitacao\\SolicitacaoDTOInfo.cs",
+              "RelativeDocumentMoniker": "..\\Entity\\Solicitacao\\SolicitacaoDTOInfo.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\Entity\\Solicitacao\\SolicitacaoDTOInfo.cs",
+              "RelativeToolTip": "..\\Entity\\Solicitacao\\SolicitacaoDTOInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T06:20:05.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SolicitacaoController.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\SolicitacaoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SolicitacaoController.cs",
+              "ToolTip": "C:\\Users\\Kelvin\\Documents\\GitHub\\PortalSGA\\API\\WAPISGA\\Controllers\\SolicitacaoController.cs",
+              "RelativeToolTip": "Controllers\\SolicitacaoController.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAgwDgAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T04:06:54.724Z",
+              "EditorCaption": ""
             }
           ]
         }
